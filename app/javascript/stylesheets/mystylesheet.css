@@ -45,3 +45,16 @@ body {
   border-radius: 30px;
 }
 
+.devise-image {
+  background-image: url('~images/devise.png');
+  background-size: cover; 
+  background-position: center;
+  width: 50%;
+  height: 60px;
+  text-align: center;
+  color: #fff;
+}
+
+.field {
+  margin-bottom: 15px;
+}
