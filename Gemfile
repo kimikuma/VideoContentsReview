@@ -18,7 +18,10 @@ gem "stimulus-rails"
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
-
+gem "kaminari", "~> 1.2.1"
+gem "devise"
+gem "image_processing", "~>1.2"
+gem "enum_help"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
