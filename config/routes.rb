@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   }
 
   devise_for :users, controllers: {
-    registations: "public/registations",
+    registrations: "public/registrations",
     sessions: "public/sessions",
     passwords: "public/passwords"
   }
