@@ -1,4 +1,37 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, path: "admin", skip: [ :registation, :passwords ], controllers: {
+    sessions: "admin/sessions"
+  }
+
+  devise_for :users, controllers: {
+    registations: "public/registations",
+    sessions: "public/sessions",
+    passwords: "public/passwords"
+  }
+
+  namespace :admin do
+    resources :users, only: [ :show, :edit, :update, :index ]
+    resources :posts, expect: [ :new, :create ]
+    resources :genres, only: [ :index, :create ]
+    get "searches" => "searches/search"
+  end
+
+  scope module: :public do
+    root "homes#top"
+    get "mypage" => "users#mypage"
+    resources :users, only: [ :edit, :update, :show ]
+    get "confirm" => "users#confirm"
+    patch "leave" => "users#leave"
+    resources :posts do
+      resources :comments, only: [ :create, :index, :destroy]
+    end 
+    resources :notifications, only: [ :update]
+    get "searches" => "searches#search"
+
+    devise_scope :users do
+      post "users/guest_sign_in" =>"public/sessions#guest_sign_in"
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

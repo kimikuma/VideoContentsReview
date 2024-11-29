@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  genre: one
+  title: MyString
+  impression: MyText
+  tag: MyString
+  star: 1.5
+  status: 1
+
+two:
+  user: two
+  genre: two
+  title: MyString
+  impression: MyText
+  tag: MyString
+  star: 1.5
+  status: 1
