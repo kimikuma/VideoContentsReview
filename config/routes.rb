@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [ :show, :edit, :update, :index ]
-    resources :posts, expect: [ :new, :create ]
+    resources :posts, except: [ :new, :create ]
     resources :genres, only: [ :index, :create ]
     get "searches" => "searches/search"
   end

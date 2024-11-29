@@ -3,6 +3,10 @@ class Post < ApplicationRecord
   belongs_to :genre
   has_many :comments, dependent: :destroy
 
+  validates :title, presence: true
+  validates :impression, presence: true, length: {maximum: 50}
+  validates :star, presence: true
+
   has_one_attched :image
 
   def get_image(width, height)
