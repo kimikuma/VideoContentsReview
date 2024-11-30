@@ -22,6 +22,7 @@ gem "kaminari", "~> 1.2.1"
 gem "devise"
 gem "image_processing", "~>1.2"
 gem "enum_help"
+gem "ruby-vips"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -55,6 +56,7 @@ group :development do
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
   gem "error_highlight", ">= 0.4.0", platforms: [ :ruby ]
+  gem "byebug"
 end
 
 group :test do

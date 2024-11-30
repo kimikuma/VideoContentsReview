@@ -1,16 +1,31 @@
 class Public::PostsController < ApplicationController
+  before_action :check_sign_in_user, only: [:edit, :update, :destroy]
 
   def new
     @post=Post.new
   end
-  
+
   def create
-    post=current_user.posts.new(post_params)
-    if post.save
+    @post=current_user.posts.new(post_params)
+    # if params[:post][:tags].present?
+    #   tag=params[:post][:tags].split(',').map(&:strip)
+    #   tags.each do |tag_name|
+    #     tag=Tag.find_or_create_by(name: tag_name)
+    #     @post.tags<< tag unless @post.tags.include?(tag)
+    #   end
+    # end
+
+    if @post.save
+      # if params[:post][:vod_ids]
+      #   params[:post][:vod_ids].each do |vod_id|
+      #     @post.vods<< Vod.find(vod_id)
+      #   end
+      # end
       flash[:notice]="投稿に成功しました!"
-      redirect_to post_path(post)
+      redirect_to post_path(@post)
     else
-      flash[:notice]="投稿に失敗しました"
+      flash.now[:alert]="投稿に失敗しました"
+      Rails.logger.debug @post.errors.full_messages
       render "new"
     end
   end
@@ -19,16 +34,28 @@ class Public::PostsController < ApplicationController
     @posts=Post.order(created_at: :desc).page(params[:page]).per(8)
   end
 
+  def show
+    @post=Post.includes(:genre).find(params[:id])
+  end
+
   def edit
     @post=current_user.posts.find(params[:id])
   end
 
   def update
-    post=current_user.posts.find(params[:id])
-    if post.update(post_params)
+    @post=current_user.posts.find(params[:id])
+    # if params[:post][:tags].present?
+    #   tag=params[:post][:tags].split(',').map(&:strip)
+    #   tags.each do |tag_name|
+    #     tag=Tag.find_or_create_by(name: tag_name)
+    #     @post.tags<< tag unless @post.tags.include?(tag)
+    #   end
+    # end
+    if @post.update(post_params)
       flash[:notice]="更新に成功しました！"
+      redirect_to post_path(@post)
     else
-      flash[:notice]="更新に失敗しました！"
+      flash.now[:alert]="更新に失敗しました"
       render "edit"
     end
   end
@@ -36,10 +63,18 @@ class Public::PostsController < ApplicationController
   def destroy
     post=current_user.posts.find(params[:id])
     post.destroy
+    redirect_to posts_path
   end
 
   private
    def post_params
-     params.require(:post).permit(:title, :impression, :tag, :star, :status, :profile_image)
+     params.require(:post).permit(:title, :impression, :image, :genre_id)
+   end
+
+   def check_sign_in_user
+     post=Post.find(params[:id])
+     unless post.user==current_user
+       redirect_to posts_path
+     end
    end
 end

@@ -17,6 +17,10 @@ class Public::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  # 
+    def guest_sign_in 
+      
+    end
 
   # protected
 
