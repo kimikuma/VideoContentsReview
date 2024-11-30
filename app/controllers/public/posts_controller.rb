@@ -1,5 +1,7 @@
-class Public::PostsController < ApplicationController
-  before_action :check_sign_in_user, only: [:edit, :update, :destroy]
+class Public::PostsController < Public::ApplicationController
+  before_action :check_sign_in_user, only: [ :edit, :update, :destroy ]
+  before_action :check_guest_user, except: [ :index, :show ]
+
 
   def new
     @post=Post.new
@@ -76,5 +78,11 @@ class Public::PostsController < ApplicationController
      unless post.user==current_user
        redirect_to posts_path
      end
+   end
+
+   def check_guest_user
+    if current_user.guest_uesr?
+      redirect_to posts_path, notice: "ゲストユーザーは閲覧のみ可能です"
+    end
    end
 end
