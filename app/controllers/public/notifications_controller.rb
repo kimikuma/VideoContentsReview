@@ -1,2 +1,2 @@
-class Public::NotificationsController < ApplicationController
+class Public::NotificationsController < Public::ApplicationController
 end

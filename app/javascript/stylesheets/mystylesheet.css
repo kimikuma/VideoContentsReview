@@ -58,3 +58,25 @@ body {
 .field {
   margin-bottom: 15px;
 }
+
+.flash-message.notice {
+  background-color: #bcdfff;
+  color: #0067C0;
+  border: solid 1px #0067C0;
+  padding: 10px;
+}
+ 
+.flash-message.alert {
+  background-color: #ffd4d1;
+  color: #930403;
+  border: solid 1px #930403;
+  padding: 10px;
+}
+
+
+#form_image {
+  background-image: url('~images/draw-4067546_640.png');
+  background-size: cover;
+  background-color: rgba(250,250,250,0.4);
+  background-blend-mode: lighten;
+}

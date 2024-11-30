@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [ :show, :edit, :update, :index ]
-    resources :posts, expect: [ :new, :create ]
+    resources :posts, except: [ :new, :create ]
     resources :genres, only: [ :index, :create ]
     get "searches" => "searches/search"
   end
@@ -19,17 +19,16 @@ Rails.application.routes.draw do
   scope module: :public do
     root "homes#top"
     get "mypage" => "users#mypage"
-    resources :users, only: [ :edit, :update, :show ]
+    resources :users, only: [ :edit, :update, :show, :destroy ]
     get "confirm" => "users#confirm"
-    patch "leave" => "users#leave"
     resources :posts do
       resources :comments, only: [ :create, :index, :destroy]
     end 
     resources :notifications, only: [ :update]
     get "searches" => "searches#search"
 
-    devise_scope :users do
-      post "users/guest_sign_in" =>"public/sessions#guest_sign_in"
+    devise_scope :user do
+      post "users/guest_sign_in" => "sessions#guest_sign_in"
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
