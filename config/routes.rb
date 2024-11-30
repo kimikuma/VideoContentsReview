@@ -19,9 +19,8 @@ Rails.application.routes.draw do
   scope module: :public do
     root "homes#top"
     get "mypage" => "users#mypage"
-    resources :users, only: [ :edit, :update, :show ]
+    resources :users, only: [ :edit, :update, :show, :destroy ]
     get "confirm" => "users#confirm"
-    patch "leave" => "users#leave"
     resources :posts do
       resources :comments, only: [ :create, :index, :destroy]
     end 
