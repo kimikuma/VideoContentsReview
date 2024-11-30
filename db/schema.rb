@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_29_024354) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_30_004542) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -83,13 +83,27 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_29_024354) do
     t.integer "genre_id", null: false
     t.string "title", null: false
     t.text "impression", null: false
-    t.string "tag", null: false
     t.float "star", null: false
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_posts_on_genre_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "tag_items", force: :cascade do |t|
+    t.integer "tag_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_tag_items_on_post_id"
+    t.index ["tag_id"], name: "index_tag_items_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -107,6 +121,21 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_29_024354) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vod_items", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "vod_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_vod_items_on_post_id"
+    t.index ["vod_id"], name: "index_vod_items_on_vod_id"
+  end
+
+  create_table "vods", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
@@ -114,4 +143,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_29_024354) do
   add_foreign_key "notifications", "users"
   add_foreign_key "posts", "genres"
   add_foreign_key "posts", "users"
+  add_foreign_key "tag_items", "posts"
+  add_foreign_key "tag_items", "tags"
+  add_foreign_key "vod_items", "posts"
+  add_foreign_key "vod_items", "vods"
 end
