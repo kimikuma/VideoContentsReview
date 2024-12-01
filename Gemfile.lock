@@ -381,7 +381,7 @@ DEPENDENCIES
   select2-rails
   selenium-webdriver
   sprockets-rails
-  sqlite3 (>= 1.4)
+  sqlite3 (= 2.3.1)
   stimulus-rails
   turbo-rails
   tzinfo-data
