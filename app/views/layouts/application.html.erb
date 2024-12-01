@@ -20,7 +20,7 @@
     <script src="https://kit.fontawesome.com/238758c22e.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', preload: false %>
-　</head>
+  </head>
   <header>
     <%=render "layouts/header" %>
   </header>  
@@ -30,5 +30,6 @@
   </body>
   <footer>
     <%=render "layouts/footer" %>
-  </footer>  
+  </footer>
+  <script src="dist/bundle.js"></script> <!-- ここでバンドルファイルを読み込む -->  
 </html>
