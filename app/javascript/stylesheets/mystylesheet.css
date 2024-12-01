@@ -1,3 +1,7 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
 
 body {
   font-family: "DynaPuff", sans-serif;
@@ -6,7 +10,11 @@ body {
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
+  background-image: url('~images/body.png');
+  background-size: cover;
 }
+
+
 #background {
   background-image: url('~images/background.png');
   background-size: cover;
@@ -77,6 +85,16 @@ body {
 #form_image {
   background-image: url('~images/draw-4067546_640.png');
   background-size: cover;
-  background-color: rgba(250,250,250,0.4);
+  background-color: rgba(250,250,250,0.1);
   background-blend-mode: lighten;
+  color: #808080;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height:100px;
+}
+

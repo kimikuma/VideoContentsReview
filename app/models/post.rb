@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :tag_items, dependent: :destroy
   has_many :vod_items, dependent: :destroy
+  has_many :vods, through: :vod_items
 
   validates :title, presence: true
   validates :impression, presence: true, length: {maximum: 50}

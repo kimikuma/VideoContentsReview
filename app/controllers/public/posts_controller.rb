@@ -18,11 +18,11 @@ class Public::PostsController < Public::ApplicationController
     # end
 
     if @post.save
-      # if params[:post][:vod_ids]
-      #   params[:post][:vod_ids].each do |vod_id|
-      #     @post.vods<< Vod.find(vod_id)
-      #   end
-      # end
+      if params[:post][:vod_ids]
+        params[:post][:vod_ids].each do |vod_id|
+        VodItem.find_or_create_by(post_id: @post.id, vod_id: vod_id)
+        end
+      end
       flash[:notice]="投稿に成功しました!"
       redirect_to post_path(@post)
     else
@@ -33,7 +33,7 @@ class Public::PostsController < Public::ApplicationController
   end
 
   def index
-    @posts=Post.order(created_at: :desc).page(params[:page]).per(8)
+    @posts=Post.includes(:vod_items).order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def show
@@ -54,6 +54,11 @@ class Public::PostsController < Public::ApplicationController
     #   end
     # end
     if @post.update(post_params)
+      if params[:post][:vod_ids]
+        params[:post][:vod_ids].each do |vod_id|
+        VodItem.find_or_create_by(post_id: @post.id, vod_id: vod_id)
+        end
+      end
       flash[:notice]="更新に成功しました！"
       redirect_to post_path(@post)
     else
@@ -81,7 +86,7 @@ class Public::PostsController < Public::ApplicationController
    end
 
    def check_guest_user
-    if current_user.guest_uesr?
+    if current_user.guest_user?
       redirect_to posts_path, notice: "ゲストユーザーは閲覧のみ可能です"
     end
    end
