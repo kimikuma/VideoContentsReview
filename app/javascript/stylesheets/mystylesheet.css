@@ -10,13 +10,13 @@ body {
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
-  background-image: url('~images/body.png');
+  background-image: url('../images/body.png');
   background-size: cover;
 }
 
 
 #background {
-  background-image: url('~images/background.png');
+  background-image: url('../images/background.png');
   background-size: cover;
   font-size: 3.0em;
   color: #fff;
@@ -54,7 +54,7 @@ body {
 }
 
 .devise-image {
-  background-image: url('~images/devise.png');
+  background-image: url('../images/devise.png');
   background-size: cover; 
   background-position: center;
   width: 50%;
@@ -83,7 +83,7 @@ body {
 
 
 #form_image {
-  background-image: url('~images/draw-4067546_640.png');
+  background-image: url('../images/draw-4067546_640.png');
   background-size: cover;
   background-color: rgba(250,250,250,0.1);
   background-blend-mode: lighten;
