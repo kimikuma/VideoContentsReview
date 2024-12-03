@@ -7,7 +7,7 @@ gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~>1.5"
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", ">= 5.0"
+gem "puma", "~>3.11"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
@@ -71,3 +71,13 @@ group :test do
 end
 
 gem "webpacker", "~> 5.4"
+
+gem "dotenv-rails"
+
+group :production do
+  gem "mysql2"
+end   
+
+gem "net-smtp"
+gem "net-pop"
+gem "net-imap"
