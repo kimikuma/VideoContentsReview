@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=DynaPuff&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Kablammo&family=Londrina+Sketch&family=Noto+Sans+JP:wght@100..900&family=Quicksand:wght@300..700&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/238758c22e.js" crossorigin="anonymous"></script>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+    <%=render "layouts/header" %>
+  </header>  
   <body>
+    <%=render "layouts/flash_messages" %>
     <%= yield %>
   </body>
+  <footer>
+    <%=render "layouts/footer" %>
+  </footer>
 </html>

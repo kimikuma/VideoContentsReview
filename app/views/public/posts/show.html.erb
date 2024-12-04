@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2">
+    </div>  
+    <div class="col-md-7">
+     <div class="card">
+      <%=image_tag @post.get_image(250,250), class: "card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title"><%=@post.title %></h5>
+        <p class="card-text"><%=@post.impression %></p>
+      </div> 
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%=@post.genre.name %></li>
+        <li class="list-group-item"><%=image_tag @post.user.get_profile_image(50,50) %>
+        <%=link_to @post.user.name, user_path(@post.user) %>
+        </li>
+        <li class="list-group-item"> 
+          <%=display_vod_items(@post.vod_items) %>
+        </li>
+          
+      </ul> 
+      <div class="card-body"> 
+        <% if @post.user==current_user %>
+         <%=link_to "編集",edit_post_path(@post), class: "btn btn-outline-success" %>
+         <%=link_to "削除",post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-outline-danger" %>
+        <% end %> 
+      </div>  
+     </div>
+    </div>
+  </div>
+</div>    
