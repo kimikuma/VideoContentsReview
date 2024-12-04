@@ -23,9 +23,8 @@
           </div>
           <div class="field">
             <%= f.label :vod_ids, "SelectVODs" %><br />
-            <%= f.select :vod_ids,options_from_collection_for_select(Vod.all, :id, :name),  { multiple: true, class: "vod-select" } %>
+            <%= f.select :vod_ids, options_from_collection_for_select(Vod.all, :id, :name) %>
           </div>
-          <script src="path/to/bundle.js"></script>
           <div class="actions">
             <%= f.submit "新規投稿", class: "btn btn-outline-success mt-4" %>
           </div>

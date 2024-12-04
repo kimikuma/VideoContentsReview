@@ -19,9 +19,10 @@ class Public::PostsController < Public::ApplicationController
 
     if @post.save
       if params[:post][:vod_ids]
-        params[:post][:vod_ids].each do |vod_id|
-        VodItem.find_or_create_by(post_id: @post.id, vod_id: vod_id)
-        end
+        @vod=params[:post][:vod_ids]
+        # params[:post][:vod_ids].each do |vod_id|
+        VodItem.find_or_create_by(post_id: @post.id, vod_id: @vod)
+      #end
       end
       flash[:notice]="投稿に成功しました!"
       redirect_to post_path(@post)
@@ -55,9 +56,10 @@ class Public::PostsController < Public::ApplicationController
     # end
     if @post.update(post_params)
       if params[:post][:vod_ids]
-        params[:post][:vod_ids].each do |vod_id|
-        VodItem.find_or_create_by(post_id: @post.id, vod_id: vod_id)
-        end
+        @vod=params[:post][:vod_ids]
+        # params[:post][:vod_ids].each do |vod_id|
+        VodItem.find_or_create_by(post_id: @post.id, vod_id: @vod)
+      #end
       end
       flash[:notice]="更新に成功しました！"
       redirect_to post_path(@post)

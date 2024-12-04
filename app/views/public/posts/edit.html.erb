@@ -22,8 +22,8 @@
             <%= f.select :genre_id,options_from_collection_for_select(Genre.all, :id, :name), class: "w-50" %>
           </div>
           <div class="field">
-            <%= f.label :vod_ids %><br />
-            <%= f.select :vod_ids,options_from_collection_for_select(Vod.all, :id, :name),  { multiple: true, class: "select-multiple" } %>
+            <%= f.label :vod_ids, "SelectVODs" %><br />
+            <%= f.select :vod_ids,options_from_collection_for_select(Vod.all, :id, :name) %>
           </div>
           <div class="actions">
             <%= f.submit "更新", class: "btn btn-outline-success mt-4" %>
