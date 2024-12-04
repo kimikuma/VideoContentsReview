@@ -1,0 +1,35 @@
+
+<div class="container mt-2" id="form_image">
+  <div class="row">
+    <div class="col-md-7 offset-md-4">
+      <h2 class="post_form mt-5">Edit</h2>
+      <%=render "layouts/error_messages", post: @post %>
+      <%=form_with model: [:public, @post], url: post_path(@post), method: :patch  do |f| %>      
+          <div class="field">
+            <%= f.label :title %><br />
+            <%= f.text_field :title, autofocus: true, placeholder: "映画名", class: "w-50" %>
+          </div>
+          <div class="field">
+            <%= f.label :impression %><br />
+            <%= f.text_area :impression, placeholder: "感想", class: "w-50" %>
+          </div>
+           <div class="field">
+            <%= f.label :image %><br />
+            <%= f.file_field :image, accept: "image/*", placeholder: "画像を選択してください", class: "w-50" %>
+          </div>
+           <div class="field">
+            <%= f.label :genre_id %><br />
+            <%= f.select :genre_id,options_from_collection_for_select(Genre.all, :id, :name), class: "w-50" %>
+          </div>
+          <div class="field">
+            <%= f.label :vod_ids %><br />
+            <%= f.select :vod_ids,options_from_collection_for_select(Vod.all, :id, :name),  { multiple: true, class: "select-multiple" } %>
+          </div>
+          <div class="actions">
+            <%= f.submit "更新", class: "btn btn-outline-success mt-4" %>
+          </div>
+      <% end %>    
+    </div>
+  </div>
+</div>     
+      
