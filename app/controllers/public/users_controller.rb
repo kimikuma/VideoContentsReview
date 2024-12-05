@@ -16,8 +16,8 @@ class Public::UsersController < Public::ApplicationController
   end
 
   def update
-    user=current_user
-    if user.update(user_params)
+    @user=current_user
+    if @user.update(user_params)
       flash[:notice]="更新に成功しました!"
       redirect_to mypage_path
     else

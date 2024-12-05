@@ -5,7 +5,7 @@
       <h2 class="post_form mt-5">Edit
       <%=link_to "削除",post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-danger mx-5" %>
       </h2>
-      <%=render "layouts/error_messages", post: @post %>
+      <%=render "layouts/error_messages", object: @post %>
       <%=form_with model: [:public, @post], url: post_path(@post), method: :patch  do |f| %>      
           <div class="field">
             <%= f.label :title %><br />
