@@ -50,4 +50,6 @@ class Public::UsersController < Public::ApplicationController
       redirect_to posts_path, notice: "ゲストユーザーは閲覧のみ可能です"
      end
    end
+ 
+
 end
