@@ -1,6 +1,7 @@
 class Public::UsersController < Public::ApplicationController
-  before_action :check_sign_in_user, except: [ :show ]
-
+  before_action :check_guest_user, except: [ :show ]
+  before_action :check_current_user,only: [ :edit ]
+  
   def mypage
     @user=current_user
     @posts=@user.posts
@@ -45,11 +46,17 @@ class Public::UsersController < Public::ApplicationController
      params.require(:user).permit(:name, :email, :profile_image)
    end
 
-   def check_sign_in_user
+   def check_guest_user
      if current_user.guest_user?
       redirect_to posts_path, notice: "ゲストユーザーは閲覧のみ可能です"
      end
    end
- 
+  
+   def check_current_user
+    user=User.find(params[:id])
+     unless user==current_user
+      redirect_to mypage_path
+     end
+   end  
 
 end
