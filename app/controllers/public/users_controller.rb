@@ -57,6 +57,6 @@ class Public::UsersController < Public::ApplicationController
      unless user==current_user
       redirect_to mypage_path
      end
-   end  
+   end
 
 end
