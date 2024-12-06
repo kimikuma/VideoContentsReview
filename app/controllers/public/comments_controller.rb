@@ -1,4 +1,5 @@
 class Public::CommentsController < Public::ApplicationController
+  before_action :check_guest_user, only: [:create, :destroy]
 
   def create
     @post=Post.find(params[:post_id])
@@ -17,4 +18,10 @@ class Public::CommentsController < Public::ApplicationController
    def comment_params
     params.require(:comment).permit(:comment)
    end 
-  end   
+
+   def check_guest_user
+    if current_user.guest_user?
+      redirect_to request.referer, notice: "ゲストユーザーは閲覧のみ可能です"
+    end
+   end
+end   
