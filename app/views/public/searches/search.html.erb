@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mt-4">
+      <h3><%=@model %>s Search for <%=@word %></h3>
+       <% if @model=="Post" %>
+        <% @posts.each do |post| %>
+          <%=post.get_image(70,70) %>
+          <%=post.title %>
+          <%=post.impression %>
+        <% end %>
+       <% end %>   
+       <% if @model=="User" %>
+        <% @users.each do |user| %>
+          <%=user.get_profile_image(70,70) %>
+          <%=user.name %>
+        <% end %>
+       <% end %> 
+    </div>
+  </div>
+</div>
