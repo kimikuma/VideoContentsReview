@@ -39,6 +39,7 @@ class Public::PostsController < Public::ApplicationController
 
   def show
     @post=Post.includes(:genre).find(params[:id])
+    @comment=Comment.new
   end
 
   def edit

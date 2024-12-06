@@ -15,6 +15,14 @@
              <%=link_to post.user.name, user_path(post.user) %>
           </p>
          </div>  
+         <div class="information mx-4">
+          <br>
+          <br>
+          <br>
+          <p class="count">
+            <i class="fa-solid fa-comment"></i><%=post.comments.count %>
+          </p>
+         </div> 
        </div>
       <% end %>
     </div>
