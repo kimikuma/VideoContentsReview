@@ -21,13 +21,13 @@ class Post < ApplicationRecord
 
   def self.search_for(word,condition)
     if condition=="partial"
-      Post.where("name LIKE?", "%"+word+"%")
+      Post.where("title LIKE?", "%"+word+"%")
     elsif condition=="forward"
-      Post.where("name LIKE?", word+"%")
+      Post.where("title LIKE?", word+"%")
     elsif condition=="backward"
-      Post.where("name LIKE?","%"+word) 
+      Post.where("title LIKE?","%"+word) 
     elsif condition=="perfect"
-      Post.where(name: word)     
+      Post.where(title: word)     
     end 
   end 
 end

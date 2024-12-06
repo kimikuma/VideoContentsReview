@@ -5,7 +5,7 @@ class Public::SearchesController < Public::ApplicationController
     @model=params[:model]
     condition=params[:condition]
 
-    if model=="User"
+    if @model=="User"
       @users=User.search_for(@word,condition)
     else 
       @posts=Post.search_for(@word,condition)
