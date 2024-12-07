@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 offset-md-2 mt-4">
+      <h3><%=@model %>s Search for <%=@word %></h3>
+       <% if @model=="Post" %>
+        <% @posts.each do |post| %>
+         <div class="d-flex mt-3">
+          <%=image_tag post.get_image(100,100) %>
+          <p><%=link_to post.title, admin_post_path(post) %><br>
+          <%=post.impression %>
+          </p>
+         </div> 
+        <% end %>
+       <% end %>   
+       <% if @model=="User" %>
+        <% @users.each do |user| %>
+         <div class="d-flex mt-3"> 
+          <%=image_tag user.get_profile_image(50,50) %>
+          <p class="mx-5"><%=link_to user.name, admin_user_path(user) %></p>
+         </div>
+        <% end %>
+       <% end %> 
+    </div>
+  </div>
+</div>
