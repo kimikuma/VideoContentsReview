@@ -1,22 +1,22 @@
-<div class="container mt-5">
+<div class="container mt-3">
   <div class="row">
-    <div class="col-md-12" id="background">
+    <div class="col-md-12 col-12" id="background">
         <p>Welcome
           <i class="fa-solid fa-door-open"></i>
         </p>
     </div>  
   </div>
   <div class="row mt-5">
-    <div class="col-md-6 offset-md-3"> 
+    <div class="col-md-6 offset-md-3 col-12"> 
       <h3>ドラマや映画のレビューサイトです。</h3>
       <h4>This is a review site for dramas and movies.</h4>
     </div>
   </div>   
-  <div class="row d-flex mt-3 mx-auto">
-    <div class="col-md-3">
-      <%=image_tag "man.png", style: "width: 200px; height: 250px; border-radius: 50%;"%>
+  <div class="row d-flex mt-2 mx-auto">
+    <div class="col-md-3 col-3">
+      <%=image_tag "man.png", class: "man-img" %>
     </div>
-    <div class="col-md-5 mt-5" id="balloon">
+    <div class="col-md-5 col-9 mt-5" id="balloon">
       <p>何か映画やドラマが見たいかた</p>
       <p>映画やドラマのレビューを投稿したいかた</p>
       <p>見たい作品のレビューが気になるかた<p>
@@ -24,15 +24,15 @@
     </div>
   </div>  
   <div class="row d-flex mt-5 mx-auto">
-    <div class="col-md-7 offset-md-2 mt-5" id="balloon2">
+    <div class="col-md-7 offset-md-2 col-9 mt-5" id="balloon2">
       <h2>気になるかたはぜひご利用くださいませ!</h2>
-      <p class="mt-5"><%=link_to "新規登録はこちら", new_user_registration_path, class: "btn btn-outline-success"%>
-         <%=link_to "ログインはこちら", new_user_session_path, class: "btn btn-outline-primary"%>
-         <%=link_to "ゲストはこちら", users_guest_sign_in_path, class: "btn btn-outline-warning"%>
+      <p class="mt-5"><%=link_to "新規登録はこちら", new_user_registration_path, class: "btn btn-outline-success top_link" %>
+         <%=link_to "ログインはこちら", new_user_session_path, class: "btn btn-outline-primary top_link" %>
+         <%=link_to "ゲストはこちら", users_guest_sign_in_path, class: "btn btn-outline-warning top_link" %>
       </p>
-    </div> 
-    <div class="col-md-3">
-      <%=image_tag "chaplin.png", style: "width: 200px; height: 300px; border-radius: 50%;"%>
+      </div> 
+    <div class="col-md-3 col-3">
+      <%=image_tag "chaplin.png", class: "chaplin-img" %>
     </div>
     
   </div>   
