@@ -1,0 +1,4 @@
+$("#comments").html("<%=j(render 'public/comments/comments', comment: @comment, post: @post)%>");
+$(".comment_form").val("");
+$(".count").html("<%=@post.comments.count %>");
+$("#icon").toggleClass('liked');
