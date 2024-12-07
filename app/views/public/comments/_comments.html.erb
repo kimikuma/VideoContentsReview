@@ -5,11 +5,11 @@
      <%=link_to comment.user.name, user_path(comment.user) %>
     </td>
     <td width="170"><%=comment.comment %></td>
-    <% if comment.user==current_user %>
-     <td><%=link_to "削除",post_comment_path(post,comment), method: :delete, class: "btn btn-outline-danger", "data-confirm" =>"本当に削除しますか？", remote: true %></td>
-    <% end %>
+     <% if comment.user==current_user %>
+      <td><%=link_to "削除",post_comment_path(post,comment), method: :delete, class: "btn btn-outline-danger", "data-confirm" =>"本当に削除しますか？", remote: true %></td>
+     <% end %>
    </tr> 
   <% end %>
- </table>  
+ </table> 
  <%=render "public/comments/form", post: post, comment: comment %>  
  
