@@ -4,7 +4,4 @@ class AdminUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  def check_admin_user
-    email==ENV["ADMIN_EMAIL"]
-  end 
 end
