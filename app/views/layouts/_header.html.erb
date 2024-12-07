@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <% unless user_signed_in? %>
+    <% unless user_signed_in? || admin_user_signed_in? %>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <%=link_to "SignUp", new_user_registration_path, class: "nav-link" %>
@@ -21,6 +21,9 @@
         </li>
       </ul> 
       <% else %>
+       <% if current_admin_user.check_admin_user %>
+        <%=render "layouts/admin_header" %>
+       <% else %> 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
              <%=link_to "MyPage", mypage_path, class: "nav-link" %>
@@ -39,7 +42,9 @@
         <input class="form-control mx-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+     <% end %>
     <% end %> 
+
     </div>
   </div>
 </nav>

@@ -1,0 +1,17 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-5">
+   <table>
+    <% @users.each do |user| %>
+     <tr>
+      <td><%=image_tag user.get_profile_image(50,50),class: "rounded-circle" %></td>
+      <td><%=link_to user.name,admin_user_path(user) %></td>
+     </tr>
+    <% end %>
+   </table>
+  </div>
+ </div>
+</div>       
+    
