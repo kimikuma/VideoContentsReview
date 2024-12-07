@@ -13,19 +13,19 @@ Rails.application.routes.draw do
     resources :users, only: [ :show, :edit, :update, :index ]
     resources :posts, except: [ :new, :create ]
     resources :genres, only: [ :index, :create ]
-    get "searches" => "searches/search"
+    get "/searches" => "searches#search"
   end
 
   scope module: :public do
     root "homes#top"
-    get "mypage" => "users#mypage"
+    get "/mypage" => "users#mypage"
     resources :users, only: [ :edit, :update, :show, :destroy ]
-    get "confirm" => "users#confirm"
+    get "/confirm" => "users#confirm"
     resources :posts do
       resources :comments, only: [ :create, :index, :destroy]
     end 
     resources :notifications, only: [ :update]
-    get "searches" => "searches#search"
+    get "/searches" => "searches#search"
 
     devise_scope :user do
       post "users/guest_sign_in" => "sessions#guest_sign_in"

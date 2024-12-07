@@ -35,9 +35,7 @@
             <%=link_to "SignOut", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
         </ul>  
-      <form class="d-flex" role="search">
-        <%=render "layouts/search_form" %>
-      </form>
+      <%=render "layouts/search_form" %>
     <% end %> 
     </div>
   </div>
