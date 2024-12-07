@@ -32,4 +32,16 @@ class User < ApplicationRecord
   def guest_user?
     email==GUEST_USER_EMAIL
   end
+
+  def self.search_for(word,condition)
+    if condition=="partial"
+      User.where("name LIKE?", "%"+word+"%")
+    elsif condition=="forward"  
+      User.where("name LIKE?", word+"%")
+    elsif condition=="backward"  
+      User.where("name LIKE?", "%"+word)
+    elsif condition=="perfect"
+      User.where(name: word)  
+    end
+  end 
 end

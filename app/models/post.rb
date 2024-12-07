@@ -18,4 +18,16 @@ class Post < ApplicationRecord
    end
    image.variant(resize_to_limit: [ width, height ]).processed
   end
+
+  def self.search_for(word,condition)
+    if condition=="partial"
+      Post.where("title LIKE?", "%"+word+"%")
+    elsif condition=="forward"
+      Post.where("title LIKE?", word+"%")
+    elsif condition=="backward"
+      Post.where("title LIKE?","%"+word) 
+    elsif condition=="perfect"
+      Post.where(title: word)     
+    end 
+  end 
 end
