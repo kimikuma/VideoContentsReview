@@ -15,9 +15,10 @@ class Admin::PostsController < Admin::ApplicationController
   def update 
     @post=Post.find(params[:id])
     if @post.update(post_params)
+     if params[:post][:vod_ids]
       @vod=params[:post][:vod_ids]
-      VodItem.find_or_create_by(post_id: @post, vod_id: @vod)
-      
+      VodItem.find_or_create_by(post_id: @post.id, vod_id: @vod)
+     end  
       flash[:notice]="更新に成功しました!"
       redirect_to admin_post_path(@post)
     else 
