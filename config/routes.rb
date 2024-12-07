@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [ :show, :edit, :update, :index, :destroy ]
-    resources :posts, except: [ :new, :create ]
+    resources :posts, except: [ :new, :create ] do
+      resources :comments, only: [:destroy]
+    end   
     resources :genres, only: [ :index, :create, :update, :destroy, :edit]
     resources :vods, only: [:index, :create, :update, :destroy, :edit]
     get "/searches" => "searches#search"
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
     resources :users, only: [ :edit, :update, :show, :destroy ]
     get "/confirm" => "users#confirm"
     resources :posts do
-      resources :comments, only: [ :create, :index, :destroy]
+      resources :comments, only: [ :create, :destroy]
     end 
     resources :notifications, only: [ :update]
     get "/searches" => "searches#search"
