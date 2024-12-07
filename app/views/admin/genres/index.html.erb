@@ -1,0 +1,36 @@
+<div class="container mt-4">
+ <div class="row">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-4 offset-md-1">
+   <div class="d-flex">
+    <% @genres.each do |genre| %>
+      <div class="mx-2 border border-4" style="border-radius:40%; padding:10px;">
+      <%=link_to genre.name, edit_admin_genre_path(genre) %>
+      </div>
+    <% end %>
+   </div>  
+    <div>
+      <%=form_with model: [:admin, @genre] do |f| %>
+        <%=f.text_field :name, placeholder: "洋画", class: "mt-4" %><br>
+        <%=f.submit "登録", class: "btn btn-outline-success mt-2" %>
+      <% end %>  
+    </div>
+  </div>
+  <div class="col-md-4 offset-md-1">
+   <div class="d-flex">
+    <% @vods.each do |vod| %>
+      <div class="mx-2 border border-4" style="border-radius:40%; padding:10px;">
+      <%=link_to vod.name, edit_admin_vod_path(vod) %>
+      </div>  
+    <% end %>
+   </div> 
+    <div>
+      <%=form_with model: [:admin, @vod] do |f| %>
+        <%=f.text_field :name, placeholder: "Video", class: "mt-4" %><br>
+        <%=f.submit "登録", class: "btn btn-outline-success mt-2" %>
+      <% end %>  
+    </div>
+  </div>
+ </div>
+</div>  

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, path: "admin", skip: [ :registation, :passwords ], controllers: {
-    sessions: "admin/sessions"
+  devise_for :admin_users, path: "admin", skip: [ :registation], controllers: {
+    sessions: "admin/sessions",
+    passwords: "admin/passwords"
   }
 
   devise_for :users, controllers: {
@@ -10,9 +11,10 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :users, only: [ :show, :edit, :update, :index ]
+    resources :users, only: [ :show, :edit, :update, :index, :destroy ]
     resources :posts, except: [ :new, :create ]
-    resources :genres, only: [ :index, :create ]
+    resources :genres, only: [ :index, :create, :update, :destroy, :edit]
+    resources :vods, only: [:index, :create, :update, :destroy, :edit]
     get "/searches" => "searches#search"
   end
 
