@@ -28,7 +28,7 @@
       <h2>気になるかたはぜひご利用くださいませ!</h2>
       <p class="mt-5"><%=link_to "新規登録はこちら", new_user_registration_path, class: "btn btn-outline-success top_link" %>
          <%=link_to "ログインはこちら", new_user_session_path, class: "btn btn-outline-primary top_link" %>
-         <%=link_to "ゲストはこちら", users_guest_sign_in_path, class: "btn btn-outline-warning top_link" %>
+         <%=link_to "ゲストはこちら", users_guest_sign_in_path, method: :post, class: "btn btn-outline-warning top_link" %>
       </p>
       </div> 
     <div class="col-md-3 col-3">
