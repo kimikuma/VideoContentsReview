@@ -8,12 +8,12 @@
           <%= render "admin/shared/error_messages", resource: resource %> 
             <div class="field">
               <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-md-50 w-75" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-50" %>
             </div>
 
             <div class="field">
               <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "current-password", class: "w-md-50 w-75" %>
+              <%= f.password_field :password, autocomplete: "current-password", class: "w-50" %>
             </div>
 
             <% if devise_mapping.rememberable? %>
@@ -27,5 +27,7 @@
               <%= f.submit "Log in", class: "btn btn-outline-success" %>
             </div>
           <% end %>
-
-          <%= render "admin/shared/links" %>
+         <%= render "admin/shared/links" %>
+    </div>
+  </div>
+</div>    

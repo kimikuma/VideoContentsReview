@@ -140,9 +140,34 @@ footer {
   }
 
   .man-img {
-    width: 60px;
-    height: 130px;
-    margin-top: 180px;
+    width: 0px;
+    height: 0px;
+  }
+
+  #balloon {
+    padding: 10px;
+  }  
+
+  #balloon:before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    bottom: 0;
+    width: 10px;
+    height: 9px;
+    background: #ccc;
+    border-radius: 30px;
+  }
+  
+  #balloon:after {
+    content: "";
+    position: absolute;
+    left: -15px;
+    bottom: 3px;
+    width: 14px;
+    height: 13px;
+    background: #ccc;
+    border-radius: 30px;
   }
 
   .chaplin-img {
@@ -172,28 +197,7 @@ footer {
     display: block;
   }
 
-  #balloon:before {
-    content: "";
-    position: absolute;
-    left: -30px;
-    bottom: 0;
-    width: 10px;
-    height: 9px;
-    background: #ccc;
-    border-radius: 30px;
-  }
   
-  #balloon:after {
-    content: "";
-    position: absolute;
-    left: -15px;
-    bottom: 3px;
-    width: 14px;
-    height: 13px;
-    background: #ccc;
-    border-radius: 30px;
-  }
-
   .card-img-top {
     height: 250px;
   }
@@ -237,4 +241,13 @@ footer {
     color: #930403;
   }
   
-}
+  .w-50 {
+    width: 75% !important;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' width='30' height='30'%3E%3Cpath fill='none' stroke='%23333' stroke-width='2' d='M5 7h20M5 15h20M5 23h20'%3E%3C/path%3E%3C/svg%3E");
+  }
+
+  
+} 
