@@ -12,7 +12,7 @@
         <% @posts.each do |post| %>
           <tr>
             <td><%=link_to post_path(post) do %>
-                <%=image_tag post.get_image(100,100) %>
+                <%=image_tag post.get_image(100,100), class: "post_img" %>
                 <% end %>
             </td>
             <td><%=post.title %><br>

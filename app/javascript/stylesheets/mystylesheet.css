@@ -1,6 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
-  min-height: 100%;
+  min-height: 100vh;
   position: relative;
+  padding-bottom: 100px;
+  box-sizing: border-box;
 }
 
 body {
@@ -102,13 +110,28 @@ body {
   color: #808080;
 }
 
-/* footer {
+.index_img {
+  width: 150px;
+  height: 100px;
+}
+
+.card-img-top {
+  height: 350px;
+}
+
+.confirm {
+  border: 3px solid #808080;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+footer {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
-  height:100px;
-} */
+  text-align: center;
+  padding: 10px;
+} 
 
 @media screen and (max-width:425px){
   #background{
@@ -138,6 +161,10 @@ body {
 
   h4 {
     font-size: 19px;
+  }
+
+  h5 {
+    font-size: 16px;
   }
  
   .top_link {
@@ -176,4 +203,38 @@ body {
     background-position: center;
     
   }
+
+  .devise-image {
+    width: 75%;
+  }   
+
+  .index_img {
+    width: 100px;
+    height: 70px;
+  }
+
+  .profile_img {
+    width: 25px;
+    height: 23px;
+    border-radius: 50%;
+  }
+  
+  p {
+    margin-bottom: 0 !important;
+  }
+  
+  .content_item {
+    width: 180px;
+  }
+
+  .post_img {
+    width: 100px;
+    height: 60px;
+  }
+
+  .fw-bold {
+    font-weight: bold;
+    color: #930403;
+  }
+  
 }
