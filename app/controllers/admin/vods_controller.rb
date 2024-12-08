@@ -7,7 +7,7 @@ class Admin::VodsController < ApplicationController
      redirect_to admin_genres_path
     else 
       flash[:notice]="登録に失敗しました"
-      redirect_to admin_genres_path
+      redirect_to request.referer
     end 
   end 
 
@@ -22,7 +22,7 @@ class Admin::VodsController < ApplicationController
       redirect_to admin_genres_path
     else
       flash[:notice]="更新に失敗しました"
-      redirect_to admin_genres_path
+      render "edit"
     end 
   end 
   

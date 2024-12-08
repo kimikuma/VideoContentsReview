@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7 offset-md-2 mt-4">
+    <div class="col-md-7 offset-md-2 mt-3 col-11 offset-1">
       <h3><%=@model %>s Search for <%=@word %></h3>
        <% if @model=="Post" %>
         <% @posts.each do |post| %>
@@ -15,8 +15,8 @@
        <% if @model=="User" %>
         <% @users.each do |user| %>
          <div class="d-flex mt-3"> 
-          <%=image_tag user.get_profile_image(50,50) %>
-          <p class="mx-5"><%=link_to user.name, admin_user_path(user) %></p>
+          <%=image_tag user.get_profile_image(50,50), class: "rounded-circle" %>
+          <p class="mx-4 mt-2"><%=link_to user.name, admin_user_path(user) %></p>
          </div>
         <% end %>
        <% end %> 
