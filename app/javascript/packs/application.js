@@ -10,10 +10,18 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
+
+window.$ = window.jQuery = require('jquery');
+import Raty from "raty.js"
+window.raty = function(elem,opt) {
+  let raty =  new Raty(elem,opt)
+  raty.init();
+  return raty;
+}
+
 import "../src/custom";
 import "../stylesheets/application";
 import '../stylesheets/mystylesheet.css';
-
 
 Rails.start()
 Turbolinks.start()

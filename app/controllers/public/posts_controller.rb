@@ -78,7 +78,7 @@ class Public::PostsController < Public::ApplicationController
 
   private
    def post_params
-     params.require(:post).permit(:title, :impression, :image, :genre_id)
+     params.require(:post).permit(:title, :impression, :image, :genre_id, :star)
    end
 
    def check_sign_in_user
