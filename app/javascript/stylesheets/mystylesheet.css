@@ -226,10 +226,6 @@ footer {
   p {
     margin-bottom: 0 !important;
   }
-  
-  .content_item {
-    width: 180px;
-  }
 
   .post_img {
     width: 100px;
@@ -244,5 +240,5 @@ footer {
   .w-50 {
     width: 75% !important;
   }
-
+  
 } 

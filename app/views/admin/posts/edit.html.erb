@@ -24,6 +24,12 @@
             <%= f.label :vod_ids, "SelectVODs" %><br />
             <%= f.select :vod_ids,options_from_collection_for_select(Vod.all, :id, :name) %>
           </div>
+          <div class="field" id="star">
+            <%= f.label :star %>
+            <%= f.hidden_field :star %>
+            <div id="post_raty"></div>
+          </div>
+           <%=render "admin/posts/star_review_edit", post: @post %> 
           <div class="actions">
             <%= f.submit "更新", class: "btn btn-outline-success mt-4" %>
           </div>
