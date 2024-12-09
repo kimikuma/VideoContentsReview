@@ -40,6 +40,6 @@ class Admin::PostsController < Admin::ApplicationController
 
   private
    def post_params
-    params.require(:post).permit(:title, :impression, :image, :genre_id)
+    params.require(:post).permit(:title, :impression, :image, :genre_id, :star)
    end  
 end

@@ -25,6 +25,15 @@
             <%= f.label :vod_ids, "SelectVODs" %><br />
             <%= f.select :vod_ids, options_from_collection_for_select(Vod.all, :id, :name) %>
           </div>
+          <div class="field” id="star”>
+            <%=f.lable :star, "評価" %>
+            <%=f.hidden_field :star %>
+            <% if @post.id.nil? %>
+             <div id="post-raty"></div>
+            <% else %>
+             <div id="star_<%=@post.id %>"></div> 
+            <% end %> 
+          </div>
           <div class="actions">
             <%= f.submit "新規投稿", class: "btn btn-outline-success mt-4" %>
           </div>
