@@ -1,19 +1,20 @@
 <div class="container mt-3">
- <div class="row">
-  <%=render "public/posts/tag_list", tags: @tags, vods: @vods %>
-   <div class="col-md-10 col-12 mt-4">
-     <div class="d-flex flex-wrap"> 
-       <% @posts.each do |post| %>
-         <div class="mb-3 mx-2">
-           <%=image_tag post.get_image(100,100), class: "mb-3" %></br>
-           <%=post.title %></br>
-           <%=post.impression %></br>
-           <%=render "public/posts/star_review", post: post %>
-           <%=display_tag_items(post.tag_items) %>
-         </div> 
-       <% end %>
-     </div>
-   </div>
- </div>
+ <%=render "public/tags/tag_search_form" %>
+  <div class="row">
+    <%=render "public/posts/tag_list", tags: @tags, vods: @vods %>
+    <div class="col-md-10 col-12 mt-4">
+      <div class="d-flex flex-wrap"> 
+        <% @posts.each do |post| %>
+          <div class="mb-3 mx-2">
+            <%=image_tag post.get_image(100,100), class: "mb-3" %></br>
+            <%=post.title %></br>
+            <%=post.impression %></br>
+            <%=render "public/posts/star_review", post: post %>
+            <%=display_tag_items(post.tag_items) %>
+          </div> 
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>         
   

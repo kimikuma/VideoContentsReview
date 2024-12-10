@@ -1,7 +1,8 @@
-<div class="container mt-5">
+<div class="container">
+ <%=render "public/tags/tag_search_form" %>
   <div class="row">
     <%=render "public/posts/tag_list", tags: @tags, vods: @vods %>
-      <div class="col-md-10">
+      <div class="col-md-10 mt-5">
        <div class="row">
         <% @posts.each do |post| %>
          <div class="content_img col-md-3 col-4"> 

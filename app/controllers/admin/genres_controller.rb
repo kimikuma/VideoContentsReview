@@ -5,6 +5,8 @@ class Admin::GenresController < Admin::ApplicationController
     @genre=Genre.new
     @vods=Vod.all 
     @vod=Vod.new
+    @tags=Tag.all
+    @tag=Tag.new
   end 
 
   def create
