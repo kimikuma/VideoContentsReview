@@ -34,6 +34,9 @@ Rails.application.routes.draw do
     devise_scope :user do
       post "users/guest_sign_in" => "sessions#guest_sign_in"
     end
+
+    get "/search_tag/:id" => "tags#search_tag", as: "search_tag"
+    get "/search_vod/:id" => "vods#search_vod", as: "search_vod"
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

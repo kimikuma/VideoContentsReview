@@ -36,7 +36,11 @@
             <div class="field">
              <%=render "public/posts/star_review", post: @post %>
             </div> 
-          <% end %> 
+          <% end %>
+          <div class="field">
+            <%=f.label :tag, "タグ" %></br>
+            <%=f.text_field :tag, placeholder: "#俳優#アクション" %>
+          </div>  
           <div class="actions">
             <%= f.submit "新規投稿", class: "btn btn-outline-success mt-4" %>
           </div>

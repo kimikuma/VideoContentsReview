@@ -1,0 +1,10 @@
+<div class="col-md-2 col-10 offset-1 offset-md-0 search_list">
+<i class="fa-solid fa-list"></i>tag</br>
+<% tags.each do |tag| %>
+  <%=link_to tag.name, search_tag_path(tag.id) %></br>
+<% end %>
+<i class="fa-solid fa-list"></i>genre</br>
+<% vods.each do |vod| %>
+  <%=link_to vod.name, search_vod_path(vod.id) %></br>
+<% end %>  
+</div>
