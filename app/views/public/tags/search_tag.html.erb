@@ -3,6 +3,9 @@
   <div class="row">
     <%=render "public/posts/tag_list", tags: @tags, vods: @vods %>
     <div class="col-md-10 col-12 mt-4">
+     <% if @posts.empty? %>
+       <p class="mx-4">検索結果はありません</p>
+     <% end %>
       <div class="d-flex flex-wrap"> 
         <% @posts.each do |post| %>
           <div class="mb-3 mx-2">
