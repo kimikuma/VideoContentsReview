@@ -1,7 +1,7 @@
 <div class="row">
  <div class="col-md-3 offset-md-9 col-7 offset-5 mb-5 mb-md-4">
   <%=form_with url: admin_searches_tag_genre_vod_path, method: :get do |f| %>
-    <%=f.text_field :word, placeholder: "タグ,ジャンル、配信サイト" %></br>
+    <%=f.text_field :word, placeholder: "タグ、ジャンル、配信サイト" %></br>
     <%=f.select :model, options_for_select({"タグ"=>"tag","ジャンル"=>"genre","配信サイト"=>"vod"})%>
     <%=f.submit "検索", class: "btn btn-outline-success mt-2" %>
   <% end %>

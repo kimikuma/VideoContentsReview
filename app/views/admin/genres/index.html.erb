@@ -12,8 +12,8 @@
     <div>
       <%=render "layouts/error_messages", object: @tag %>
       <%=form_with model: [:admin, @tag] do |f| %>
-        <%=f.text_field :name, placeholder: "俳優,アクション", class: "mt-4 w-75" %><br>
-        <%=f.submit "登録", class: "btn btn-outline-success mt-2" %>
+        <%=f.text_field :name, placeholder: "タグ", class: "mt-4 w-75" %><br>
+        <%=f.submit "登録", class: "btn btn-outline-success mt-2 mb-5" %>
       <% end %>  
     </div>
   </div>
@@ -28,8 +28,8 @@
     <div>
       <%=render "layouts/error_messages", object: @genre %>
       <%=form_with model: [:admin, @genre] do |f| %>
-        <%=f.text_field :name, placeholder: "洋画", class: "mt-4 w-75" %><br>
-        <%=f.submit "登録", class: "btn btn-outline-success mt-2 mb-2" %>
+        <%=f.text_field :name, placeholder: "ジャンル", class: "mt-4 w-75" %><br>
+        <%=f.submit "登録", class: "btn btn-outline-success mt-2 mb-5" %>
       <% end %>  
     </div>
   </div>
@@ -44,8 +44,8 @@
     <div>
       <%=render "layouts/error_messages", object: @vod %>
       <%=form_with model: [:admin, @vod] do |f| %>
-        <%=f.text_field :name, placeholder: "Video", class: "mt-4 w-75" %><br>
-        <%=f.submit "登録", class: "btn btn-outline-success mt-2 mb-5" %>
+        <%=f.text_field :name, placeholder: "配信サイト", class: "mt-4 w-75" %><br>
+        <%=f.submit "登録", class: "btn btn-outline-success mt-2" %>
       <% end %>  
     </div>
   </div>
