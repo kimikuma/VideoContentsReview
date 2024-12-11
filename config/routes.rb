@@ -15,9 +15,11 @@ Rails.application.routes.draw do
     resources :posts, except: [ :new, :create ] do
       resources :comments, only: [:destroy]
     end   
-    resources :genres, only: [ :index, :create, :update, :destroy, :edit]
-    resources :vods, only: [:index, :create, :update, :destroy, :edit]
+    resources :genres, only: [:index, :create, :update, :destroy, :edit]
+    resources :vods, only: [:create, :update, :destroy, :edit]
+    resources :tags, only: [:edit, :update, :destroy, :create]
     get "/searches" => "searches#search"
+    get "/searches/tag_genre_vod" => "searches#search_tag_genre_vod"
   end
 
   scope module: :public do
@@ -34,6 +36,9 @@ Rails.application.routes.draw do
     devise_scope :user do
       post "users/guest_sign_in" => "sessions#guest_sign_in"
     end
+    resources :tags, only: [:index]
+    get "/search_tag" => "tags#search_tag", as: "search_tag"
+    get "/search_vod" => "vods#search_vod", as: "search_vod"
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

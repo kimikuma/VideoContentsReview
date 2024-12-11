@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   belongs_to :genre
   has_many :comments, dependent: :destroy
   has_many :tag_items, dependent: :destroy
+  has_many :tags, through: :tag_items
   has_many :vod_items, dependent: :destroy
   has_many :vods, through: :vod_items
 
@@ -30,4 +31,27 @@ class Post < ApplicationRecord
       Post.where(title: word)     
     end 
   end 
+
+  def save_tags(tags)
+    #postsに紐づくtag一覧を取得→current_tagsに代入
+    current_tags=self.tags.pluck(:name) unless self.tags.nil?
+    #タグ前の#を削除
+    tags=tags.map { |tag| tag.sub(/^#/,'') }.reject(&:empty?)
+    #current_tagsと受け取ったtagの差をpresence_tagsに代入(既に登録済だけど今回のタグにないもの)
+    presence_tags=current_tags-tags  
+    #受け取ったtagとcurrent_tagsの差をnew_tagに代入(新しいタグ)
+    new_tags=tags-current_tags
+    
+    #既に登録済で更新されたタグに含まれないものをtag_itemから削除
+    presence_tags.each do |tag|
+     self.tags.delete Tag.find_by(name: tag)
+    end 
+    #更新されたタグで未登録のタグを新規登録
+    new_tags.each do |tag|
+      new_tag=Tag.find_or_create_by(name: tag)
+      self.tags<<new_tag
+    end   
+  end 
+
 end
+

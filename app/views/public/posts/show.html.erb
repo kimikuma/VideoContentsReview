@@ -21,7 +21,9 @@
         <li class="list-group-item"> 
           <%=display_vod_items(@post.vod_items) %>
         </li>
-          
+        <li class="list-group-item">
+          <%=display_tag_items(@post.tag_items) %>
+        </li> 
       </ul> 
       <div class="card-body"> 
         <% if @post.user==current_user %>

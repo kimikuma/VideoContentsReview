@@ -9,14 +9,8 @@ class Public::PostsController < Public::ApplicationController
 
   def create
     @post=current_user.posts.new(post_params)
-    # if params[:post][:tags].present?
-    #   tag=params[:post][:tags].split(',').map(&:strip)
-    #   tags.each do |tag_name|
-    #     tag=Tag.find_or_create_by(name: tag_name)
-    #     @post.tags<< tag unless @post.tags.include?(tag)
-    #   end
-    # end
-
+    tags=params[:post][:tag].split('#')
+    
     if @post.save
       if params[:post][:vod_ids]
         @vod=params[:post][:vod_ids]
@@ -24,6 +18,7 @@ class Public::PostsController < Public::ApplicationController
         VodItem.find_or_create_by(post_id: @post.id, vod_id: @vod)
       #end
       end
+      @post.save_tags(tags)
       flash[:notice]="投稿に成功しました!"
       redirect_to post_path(@post)
     else
@@ -35,6 +30,8 @@ class Public::PostsController < Public::ApplicationController
 
   def index
     @posts=Post.includes(:vod_items).order(created_at: :desc).page(params[:page]).per(8)
+    @tags=Tag.all
+    @vods=Vod.all
   end
 
   def show
@@ -48,13 +45,8 @@ class Public::PostsController < Public::ApplicationController
 
   def update
     @post=current_user.posts.find(params[:id])
-    # if params[:post][:tags].present?
-    #   tag=params[:post][:tags].split(',').map(&:strip)
-    #   tags.each do |tag_name|
-    #     tag=Tag.find_or_create_by(name: tag_name)
-    #     @post.tags<< tag unless @post.tags.include?(tag)
-    #   end
-    # end
+    tags=params[:post][:tag].split('#').reject(&:empty?)
+
     if @post.update(post_params)
       if params[:post][:vod_ids]
         @vod=params[:post][:vod_ids]
@@ -62,6 +54,7 @@ class Public::PostsController < Public::ApplicationController
         VodItem.find_or_create_by(post_id: @post.id, vod_id: @vod)
       #end
       end
+      @post.save_tags(tags)
       flash[:notice]="更新に成功しました！"
       redirect_to post_path(@post)
     else

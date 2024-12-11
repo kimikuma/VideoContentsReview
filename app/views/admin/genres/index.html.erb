@@ -1,8 +1,23 @@
-<div class="container mt-4">
+<div class="container mt-3">
+ <%=render "admin/searches/search_form_tag_genre_vod" %>
  <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-3 offset-md-1 col-10 offset-2">
+    <div class="d-flex flex-wrap">
+      <% @tags.each do |tag| %>
+        <div class="mx-2 mb-2 border border-4" style="border-radius:40%; padding:10px;">
+        <%=link_to tag.name, edit_admin_tag_path(tag) %>
+        </div>  
+      <% end %>
+    </div> 
+    <div>
+      <%=render "layouts/error_messages", object: @tag %>
+      <%=form_with model: [:admin, @tag] do |f| %>
+        <%=f.text_field :name, placeholder: "タグ", class: "mt-4 w-75" %><br>
+        <%=f.submit "登録", class: "btn btn-outline-success mt-2 mb-5" %>
+      <% end %>  
+    </div>
   </div>
-  <div class="col-md-4 offset-md-1 col-10 offset-2 mb-5">
+  <div class="col-md-3 offset-md-0 col-10 offset-2 mb-5">
    <div class="d-flex flex-wrap">
     <% @genres.each do |genre| %>
       <div class="mx-2 mb-2 border border-4" style="border-radius:40%; padding:10px;">
@@ -13,12 +28,12 @@
     <div>
       <%=render "layouts/error_messages", object: @genre %>
       <%=form_with model: [:admin, @genre] do |f| %>
-        <%=f.text_field :name, placeholder: "洋画", class: "mt-4 w-75" %><br>
-        <%=f.submit "登録", class: "btn btn-outline-success mt-2" %>
+        <%=f.text_field :name, placeholder: "ジャンル", class: "mt-4 w-75" %><br>
+        <%=f.submit "登録", class: "btn btn-outline-success mt-2 mb-5" %>
       <% end %>  
     </div>
   </div>
-  <div class="col-md-4 offset-md-1 col-10 offset-2">
+  <div class="col-md-3 offset-md-0 col-10 offset-2">
    <div class="d-flex flex-wrap">
     <% @vods.each do |vod| %>
       <div class="mx-2 mb-2 border border-4" style="border-radius:40%; padding:10px;">
@@ -29,7 +44,7 @@
     <div>
       <%=render "layouts/error_messages", object: @vod %>
       <%=form_with model: [:admin, @vod] do |f| %>
-        <%=f.text_field :name, placeholder: "Video", class: "mt-4 w-75" %><br>
+        <%=f.text_field :name, placeholder: "配信サイト", class: "mt-4 w-75" %><br>
         <%=f.submit "登録", class: "btn btn-outline-success mt-2" %>
       <% end %>  
     </div>

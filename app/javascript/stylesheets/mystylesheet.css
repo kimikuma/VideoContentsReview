@@ -125,6 +125,19 @@ body {
   padding: 20px;
 }
 
+.search_list {
+  border: 2px solid black;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.tag_list, .vod_list {
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 15px;
+}
+
+
 footer {
   position: absolute;
   bottom: 0;

@@ -43,11 +43,15 @@
              <%=render "public/posts/star_review", post: @post %>
             </div> 
           <% end %>
+          <div class="field">
+            <%=f.label :tag, "タグ" %></br>
+            <%=f.text_field :tag, value: display_tag_items(@post.tag_items) %>
+          </div>  
           <div class="actions">
             <%= f.submit "更新", class: "btn btn-outline-success mt-4" %>
+            <%= link_to "戻る", post_path(@post), class: "btn btn-outline-warning mt-4 mx-5" %>
           </div>
       <% end %>    
     </div>
   </div>
-</div>     
-      
+</div>      

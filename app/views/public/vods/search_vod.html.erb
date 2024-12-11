@@ -1,0 +1,20 @@
+<div class="container mt-3">
+ <%=render "public/tags/tag_search_form" %>
+  <div class="row">
+    <%=render "public/posts/tag_list", tags: @tags, vods: @vods %>
+    <div class="col-md-10 col-12 mt-4">
+      <div class="d-flex flex-wrap"> 
+        <% @posts.each do |post| %>
+          <div class="mb-3 mx-3">
+            <%=image_tag post.get_image(100,100), class: "mb-3" %></br>
+            <%=link_to post.title, post_path(post) %></br>
+            <%=post.impression %></br>
+            <%=render "public/posts/star_review", post: post %>
+            <%=display_vod_items(post.vod_items) %>
+          </div> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>         
+  

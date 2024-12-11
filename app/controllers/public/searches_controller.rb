@@ -8,9 +8,9 @@ class Public::SearchesController < Public::ApplicationController
 
     if @model=="User"
       @users=User.search_for(@word,condition)
-    else 
-      @posts=Post.search_for(@word,condition)
-    end 
+    else @model=="Post"
+      @posts=Post.search_for(@word,condition) 
+    end     
   end     
   
   private

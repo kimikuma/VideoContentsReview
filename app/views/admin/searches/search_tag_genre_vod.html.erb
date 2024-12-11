@@ -1,0 +1,27 @@
+<div class="container">
+ <%=render "admin/searches/search_form_tag_genre_vod" %>
+  <div class="row">
+    <div class="col-md-7 offset-md-2 mt-3 col-11 offset-1">
+      <h3><%=@model %>s Search for <%=@word %></h3>
+       <% if @model=="tag" %>
+        <% @tags.each do |tag| %>
+         <div class="d-flex mt-3">
+          <p><%=link_to tag.name, edit_admin_tag_path(tag) %></p>
+         </div> 
+        <% end %>   
+       <% elsif @model=="genre" %>
+        <% @genres.each do |genre| %>
+         <div class="d-flex mt-3">
+          <p class="mx-4 mt-2"><%=link_to genre.name, edit_admin_genre_path(genre) %></p>
+         </div>
+        <% end %>
+       <% else %>
+        <% @vods.each do |vod| %>
+         <div class="d-flex mt-3"> 
+          <p class="mx-4 mt-2"><%=link_to vod.name, edit_admin_vod_path(vod) %></p>
+         </div>
+        <% end %> 
+       <% end %> 
+    </div>
+  </div>
+</div>
