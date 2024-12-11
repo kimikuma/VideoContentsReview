@@ -1,7 +1,7 @@
 class Public::PostsController < Public::ApplicationController
   before_action :check_sign_in_user, only: [ :edit, :update, :destroy ]
   before_action :check_guest_user, except: [ :index, :show ]
-
+  before_action :post_status_and_user, only: [ :show ]
 
   def new
     @post=Post.new
@@ -29,7 +29,7 @@ class Public::PostsController < Public::ApplicationController
   end
 
   def index
-    @posts=Post.includes(:vod_items).order(created_at: :desc).page(params[:page]).per(8)
+    @posts=Post.where(status: true).includes(:vod_items).order(created_at: :desc).page(params[:page]).per(8)
     @tags=Tag.all
     @vods=Vod.all
   end
@@ -71,7 +71,7 @@ class Public::PostsController < Public::ApplicationController
 
   private
    def post_params
-     params.require(:post).permit(:title, :impression, :image, :genre_id, :star)
+     params.require(:post).permit(:title, :impression, :image, :genre_id, :star, :status)
    end
 
    def check_sign_in_user
@@ -86,6 +86,14 @@ class Public::PostsController < Public::ApplicationController
       redirect_to posts_path, notice: "ゲストユーザーは閲覧のみ可能です"
     end
    end
-
+  
+   def post_status_and_user
+    @post=Post.find(params[:id])
+    if @post.post_status
+     unless @post.user==current_user 
+      redirect_to posts_path 
+     end    
+    end  
+   end 
    
 end

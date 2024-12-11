@@ -7,21 +7,23 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-md-8 offset-md-2">
-      <table class="table table-light table-striped table-hover">
-        <% @posts.each do |post| %>
-          <tr>
-            <td><%=link_to post_path(post) do %>
-                <%=image_tag post.get_image(100,100), class: "post_img" %>
-                <% end %>
-            </td>
-            <td><%=post.title %><br>
-                <%=post.impression %>
-            </td>
-          </tr>      
-        <% end %>  
-      </table> 
-    </div>   
+   <div class="col-md-8 offset-md-2 col-12">
+    <div class="wrap">
+     <ul class="tab-list list-unstyled mt-4">
+      <li class="tab tab-active">公開</li>
+      <li class="tab">非公開</li>
+     </ul>
+     <div class="tabbox-contents">
+      <div class="tabbox box-show">
+        <%= render 'public/users/private_public_post', posts: @posts %>    
+      </div>
+      <div class="tabbox">
+        <%= render 'public/users/private_public_post', posts: @draft %>
+      </div>
+     </div>  
+    </div> 
+   </div>
   </div>  
-</div> 
+ </div>   
+
 
