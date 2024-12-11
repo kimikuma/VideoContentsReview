@@ -16,12 +16,6 @@
             <%= f.label :image %><br />
             <%= f.file_field :image, accept: "image/*", class: "w-50" %>
           </div>
-          <div class="field mt-4">
-            <%= f.radio_button :public_status, true %>
-            <%= f.label :public_status_true, "公開", class: "mr-3" %>
-            <%= f.radio_button :public_status, false %>
-            <%= f.label :public_status_true, "非公開" %>
-          </div>
           <div class="actions">
             <%= f.submit "更新", class: "btn btn-outline-success mt-4" %>
           </div>
