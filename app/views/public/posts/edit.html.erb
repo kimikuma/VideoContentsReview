@@ -46,7 +46,13 @@
           <div class="field">
             <%=f.label :tag, "タグ" %></br>
             <%=f.text_field :tag, value: display_tag_items(@post.tag_items) %>
-          </div>  
+          </div>
+          <div class="field">
+            <%=f.radio_button :status, true %>
+            <%=f.label :status_true, "公開" %>
+            <%=f.radio_button :status, false %>
+            <%=f.label :status_false, "非公開" %>
+          </div>    
           <div class="actions">
             <%= f.submit "更新", class: "btn btn-outline-success mt-4" %>
             <%= link_to "戻る", post_path(@post), class: "btn btn-outline-warning mt-4 mx-5" %>

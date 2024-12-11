@@ -9,20 +9,34 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-md-8 offset-md-2">
-      <table class="table table-light table-striped table-hover">
-        <% @posts.each do |post| %>
-          <tr>
-            <td><%=link_to post_path(post) do %>
-                <%=image_tag post.get_image(100,100), class: "post_img" %>
-                <% end %>
-            </td>
-            <td><%=post.title %><br>
-                <%=post.impression %>
-            </td>
-          </tr>      
-        <% end %>  
-      </table> 
+    <div class="col-md-8 offset-md-2 col-12">
+     <% if @user==current_user %>
+      <div class="wrap">
+        <ul class="tab-list list-unstyled mt-4">
+          <li class="tab tab-active">公開</li>
+          <li class="tab">非公開</li>
+        </ul>
+        <div class="tabbox-contents">
+          <div class="tabbox box-show">
+            <%= render 'public/users/private_public_post', posts: @posts %>    
+          </div>
+          <div class="tabbox">
+            <%= render 'public/users/private_public_post', posts: @draft %>
+          </div>
+        </div>
+     <% else %>    
+        <div class="d-flex flex-wrap">
+         <% @posts.each do |post| %>
+          <div class="mx-2 mt-3 mypost_contents">
+            <%=link_to post_path(post) do %>
+                <%=image_tag post.get_image(120,120), class: "post_img" %></br>
+            <% end %>
+            <i class="fa-solid fa-heading"></i><%=post.title %></br>
+            <i class="fa-solid fa-face-smile"></i><%=post.impression %>
+          </div>  
+         <% end %> 
+        </div>
+      <% end %>  
     </div>   
   </div>  
 </div> 

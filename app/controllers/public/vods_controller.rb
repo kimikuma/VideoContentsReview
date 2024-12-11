@@ -2,7 +2,7 @@ class Public::VodsController < ApplicationController
 
   def search_vod
     if params[:vod].present?
-      @posts=Post.joins(:vods).where(vods: {name: params[:vod]})
+      @posts=Post.where(status: true).joins(:vods).where(vods: {name: params[:vod]})
     else
       flash[:notice]="検索結果はありません"  
     end   

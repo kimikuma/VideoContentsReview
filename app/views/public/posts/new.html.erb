@@ -41,6 +41,12 @@
             <%=f.label :tag, "タグ" %></br>
             <%=f.text_field :tag, placeholder: "#俳優#アクション" %>
           </div>  
+          <div class="field">
+            <%=f.radio_button :status, true %>
+            <%=f.label :status_true, "公開" %>
+            <%=f.radio_button :status, false, class: "" %>
+            <%=f.label :status_false, "非公開" %>
+          </div>   
           <div class="actions">
             <%= f.submit "新規投稿", class: "btn btn-outline-success mt-4" %>
           </div>
