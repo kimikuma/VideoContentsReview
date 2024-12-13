@@ -9,7 +9,7 @@
      <div class="tabbox box-show">
        <%=link_to "評価順", admin_posts_path(star_count: true), class: "btn btn-outline-secondary btn-sm ml-md-5 mr-2 mb-3" %>
        <%=link_to "新着順", admin_posts_path(latest: true), class: "btn btn-outline-secondary btn-sm mr-2 mb-3" %>
-       <%=link_to "古い順", admin_posts_path(latest: true), class: "btn btn-outline-secondary btn-sm mb-3" %>  
+       <%=link_to "古い順", admin_posts_path(old: true), class: "btn btn-outline-secondary btn-sm mb-3" %>  
        <%=render "admin/posts/public_private_post", posts: @posts %>
      </div> 
      <div class="tabbox">
