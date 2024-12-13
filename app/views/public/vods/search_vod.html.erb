@@ -2,7 +2,10 @@
  <%=render "public/tags/tag_search_form" %>
   <div class="row">
     <%=render "public/posts/tag_list", tags: @tags, vods: @vods %>
-    <div class="col-md-10 col-12 mt-4">
+    <div class="col-md-10 col-12 mt-3">
+      <%=link_to "新着順",search_vod_path(vod: params[:vod],latest: true), class: "btn btn-outline-secondary btn-sm mr-1 mb-3" %>
+      <%=link_to "古い順",search_vod_path(vod: params[:vod],old: true), class: "btn btn-outline-secondary btn-sm mr-1 mb-3" %>
+      <%=link_to "評価順",search_vod_path(vod: params[:vod],star_count: true), class: "btn btn-outline-secondary btn-sm mb-3" %>
      <% if @posts.empty? %>
       <p class="mx-4">検索結果はありません</p>
      <% end %>  

@@ -29,10 +29,20 @@ class Public::PostsController < Public::ApplicationController
   end
 
   def index
-    @posts=Post.where(status: true).includes(:vod_items).order(created_at: :desc).page(params[:page]).per(8)
+    if params[:latest]
+      @posts=Post.latest.page(params[:page]).per(8)
+    elsif params[:old]
+      @posts=Post.old.page(params[:page]).per(8)
+    elsif params[:star_count]
+      @posts=Post.star_count.page(params[:page]).per(8)
+    elsif params[:genre]  
+      @posts=Post.genre.page(params[:page]).per(8)
+    else      
+      @posts=Post.where(status: true).order(created_at: :desc).page(params[:page]).per(8)
+    end
     @tags=Tag.all
     @vods=Vod.all
-  end
+  end   
 
   def show
     @post=Post.includes(:genre).find(params[:id])
