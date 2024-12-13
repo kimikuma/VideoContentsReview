@@ -57,5 +57,9 @@ class Post < ApplicationRecord
     status==false
   end  
 
+  scope :latest, ->{where(status: true).order(created_at: :desc)}
+  scope :old, ->{where(status: true).order(created_at: :asc)}
+  scope :star_count, ->{where(status: true).order(star: :desc)}
+  scope :genre, ->{where(status: true).joins(:genre).order('genres.name')}
 end
 
