@@ -53,5 +53,9 @@ class Post < ApplicationRecord
     end   
   end 
 
+  def post_status
+    status==false
+  end  
+
 end
 

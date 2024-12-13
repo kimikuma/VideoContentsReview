@@ -4,12 +4,14 @@ class Public::UsersController < Public::ApplicationController
   
   def mypage
     @user=current_user
-    @posts=@user.posts
+    @posts=@user.posts.where(status: true).order(created_at: :desc).page(params[:page]).per(6)
+    @draft=@user.posts.where(status: false).order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def show
     @user=User.find(params[:id])
-    @posts=@user.posts.order(created_at: :desc).page(params[:page]).per(6)
+    @posts=@user.posts.where(status: true).order(created_at: :desc).page(params[:page]).per(6)
+    @draft=@user.posts.where(status: false).order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def edit

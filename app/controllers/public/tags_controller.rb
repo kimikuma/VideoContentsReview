@@ -2,7 +2,7 @@ class Public::TagsController < ApplicationController
 
   def search_tag
     if params[:tag].present?
-      @posts=Post.joins(:tags).where(tags: {name: params[:tag]})
+      @posts=Post.where(status: true).joins(:tags).where(tags: {name: params[:tag]})
     else 
       flash[:notice]="検索結果はありません" 
     end  

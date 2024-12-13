@@ -137,6 +137,56 @@ body {
   padding: 15px;
 }
 
+.wrap {
+  width: 100%;
+}
+
+.tab {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border-left: solid 1px #fff;
+  border-bottom: solid 1px #fff;
+  border-radius: 30px;
+  background-color: #fff;
+  display: inline;
+  color: #000;
+}
+
+
+.tab:first-child {
+  border-left: none;
+}
+
+.tab-active {
+  color: #fff;
+  background: #ccc;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabbox {
+  display: none;
+}
+
+.box-show {
+  display: block;
+}
+
+.tab:hover{
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+.mypost_contents {
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 20px;
+  width: 170px;
+  height: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 footer {
   position: absolute;
