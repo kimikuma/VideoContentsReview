@@ -5,7 +5,8 @@
                 <%=image_tag post.get_image(120,120), class: "post_img" %></br>
             <% end %>
             <i class="fa-solid fa-heading"></i><%=post.title %></br>
-            <i class="fa-solid fa-face-smile"></i><%=post.impression %>
+            <i class="fa-solid fa-face-smile"></i><%=post.impression %></br>
+            <%=post.created_at.strftime('%Y/%m/%d')%>
           </div>  
         <% end %> 
      </div>

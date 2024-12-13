@@ -1,9 +1,20 @@
 class Admin::PostsController < Admin::ApplicationController
 
-  def index
-    @posts=Post.where(status: true).order(created_at: :desc).page(params[:page]).per(8)
-    @draft=Post.where(status: false).order(created_at: :desc).page(params[:page]).per(8)
+  def index   
 
+    if params[:star_count]
+      @posts=Post.star_count.page(params[:page]).per(8)
+      @draft=Post.where(status: false).page(params[:page]).per(8)
+    elsif params[:latest]  
+      @posts=Post.latest.page(params[:page]).per(8)
+      @draft=Post.where(status: false).page(params[:page]).per(8)
+    elsif params[:old]  
+      @posts=Post.old.page(params[:page]).per(8)  
+      @draft=Post.where(status: false).page(params[:page]).per(8)
+    else
+      @posts=Post.where(status: true).order(created_at: :desc).page(params[:page]).per(8)
+      @draft=Post.where(status: false).order(created_at: :desc).page(params[:page]).per(8)
+    end 
   end
   
   def show
