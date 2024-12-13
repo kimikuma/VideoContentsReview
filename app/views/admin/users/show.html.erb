@@ -15,7 +15,10 @@
                 <%=image_tag post.get_image(80,80) %>
                 <% end %>
             </td>
-            <td><%=post.title %><br>
+            <td><%=post.title %>
+                <% if post.status==false %>
+                 <span style="color:red;"><i class="fa-solid fa-lock"></i></span>
+                <% end %><br>
                 <%=post.impression %>
             </td>
           </tr>      

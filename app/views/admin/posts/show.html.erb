@@ -24,6 +24,11 @@
         <li class="list-group-item">
           <%=display_tag_items_edit(@post.tag_items) %>
         </li>
+        <li class="list-group-item">
+          <% if @post.status==false %>
+          <span style="color:red;"><i class="fa-solid fa-lock"></i>非公開</span>
+          <% end %>
+        </li>
       </ul> 
       <div class="card-body">
          <%=link_to "編集",edit_admin_post_path(@post), class: "btn btn-outline-success" %>

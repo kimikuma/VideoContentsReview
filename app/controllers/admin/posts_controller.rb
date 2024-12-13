@@ -1,7 +1,9 @@
 class Admin::PostsController < Admin::ApplicationController
 
   def index
-    @posts=Post.order(created_at: :desc).page(params[:page]).per(8)
+    @posts=Post.where(status: true).order(created_at: :desc).page(params[:page]).per(8)
+    @draft=Post.where(status: false).order(created_at: :desc).page(params[:page]).per(8)
+
   end
   
   def show
