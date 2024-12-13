@@ -18,7 +18,7 @@ class Admin::UsersController < Admin::ApplicationController
       flash[:notice]="更新に成功しました!"
       redirect_to admin_user_path(@user)
     else
-      flash[:notice]="更新に失敗しました"
+      flash.now[:alert]="更新に失敗しました"
       render "edit"
     end 
   end 
@@ -29,7 +29,7 @@ class Admin::UsersController < Admin::ApplicationController
       flash[:notice]="退会処理完了しました"
       redirect_to admin_users_path
     else
-      flash[:notice]="退会処理失敗しました"
+      flash.now[:alert]="退会処理失敗しました"
       redirect_to request.referer
     end 
   end 

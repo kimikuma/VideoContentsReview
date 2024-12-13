@@ -4,7 +4,7 @@ class Public::TagsController < ApplicationController
     if params[:tag].present?
       @posts=Post.where(status: true).joins(:tags).where(tags: {name: params[:tag]})
     else 
-      flash[:notice]="検索結果はありません" 
+      flash.now[:alert]="検索結果はありません" 
     end  
     @tags=Tag.limit(6)
     @vods=Vod.limit(6)
