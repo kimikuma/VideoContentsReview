@@ -24,7 +24,7 @@ class Public::UsersController < Public::ApplicationController
       flash[:notice]="更新に成功しました!"
       redirect_to mypage_path
     else
-      flash[:notice]="更新に失敗しました!"
+      flash.now[:alert]="更新に失敗しました!"
       render "edit"
     end
   end
@@ -38,7 +38,7 @@ class Public::UsersController < Public::ApplicationController
       flash[:notice]="退会しました"
       redirect_to new_user_registration_path
     else 
-      flash[:notice]="退会に失敗しました"
+      flash.now[:alert]="退会に失敗しました"
       redirect_to "confirm"
     end
   end

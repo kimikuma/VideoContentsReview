@@ -15,7 +15,7 @@ class Admin::GenresController < Admin::ApplicationController
       flash[:notice]="登録完了しました!"
       redirect_to admin_genres_path
     else
-      flash[:notice]="登録失敗しました"
+      flash.now[:alert]="登録失敗しました"
       redirect_to request.referer
     end 
   end       
@@ -30,7 +30,7 @@ class Admin::GenresController < Admin::ApplicationController
       flash[:notice]="更新に成功しました!"
       redirect_to  admin_genres_path
     else 
-      flash[:notice]="更新に失敗しました"
+      flash.now[:alert]="更新に失敗しました"
       render "edit" 
     end 
   end     
@@ -41,7 +41,7 @@ class Admin::GenresController < Admin::ApplicationController
       flash[:notice]="削除しました"
       redirect_to  admin_genres_path 
     else 
-      flash[:notice]="削除に失敗しました"
+      flash.now[:alert]="削除に失敗しました"
       redirect_to  admin_genres_path
     end 
   end 

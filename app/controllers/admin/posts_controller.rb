@@ -35,7 +35,7 @@ class Admin::PostsController < Admin::ApplicationController
       flash[:notice]="更新に成功しました!"
       redirect_to admin_post_path(@post)
     else 
-      flash[:notice]="更新に失敗しました"
+      flash.now[:alert]="更新に失敗しました"
       render "edit"
     end 
   end   
@@ -46,7 +46,7 @@ class Admin::PostsController < Admin::ApplicationController
       flash[:notice]="削除しました"
       redirect_to admin_posts_path
     else 
-      flash[:notice]="削除失敗しました"
+      flash.now[:alert]="削除失敗しました"
       redirect_to admin_post_path(@post)
     end 
   end     
