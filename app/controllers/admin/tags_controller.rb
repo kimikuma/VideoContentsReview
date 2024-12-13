@@ -6,7 +6,7 @@ class Admin::TagsController < ApplicationController
       flash[:notice]="登録に成功しました!"
       redirect_to admin_genres_path
     else 
-      flash[:notice]="登録に失敗しました"
+      flash.now[:alert]="登録に失敗しました"
       render "new"
     end 
   end      
@@ -21,7 +21,7 @@ class Admin::TagsController < ApplicationController
       flash[:notice]="更新に成功しました!"
       redirect_to admin_genres_path 
     else 
-      flash[:notice]="更新に失敗しました"  
+      flash.now[:alert]="更新に失敗しました"  
       render "edit"
     end
   end 
@@ -32,7 +32,7 @@ class Admin::TagsController < ApplicationController
       flash[:notice]="削除しました"
       redirect_to admin_genres_path
     else
-      flash[:notice]="削除失敗しました"
+      flash.now[:alert]="削除失敗しました"
       render "edit" 
     end 
   end 
