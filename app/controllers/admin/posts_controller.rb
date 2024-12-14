@@ -32,6 +32,7 @@ class Admin::PostsController < Admin::ApplicationController
       @vod=params[:post][:vod_ids]
       VodItem.find_or_create_by(post_id: @post.id, vod_id: @vod)
      end  
+      Notification.create(user_id: @post.user.id, notifiable: @post)
       flash[:notice]="更新に成功しました!"
       redirect_to admin_post_path(@post)
     else 
@@ -43,6 +44,7 @@ class Admin::PostsController < Admin::ApplicationController
   def destroy
     @post=Post.find(params[:id])
     if @post.destroy
+      Notification.create(user_id: @post.user.id, notifiable: @post)
       flash[:notice]="削除しました"
       redirect_to admin_posts_path
     else 

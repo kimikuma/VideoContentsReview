@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <button class="btn btn-outline-secondary dropdown-toggle ml-md-4 mb-3" type="button" data-toggle="dropdown" aria-expanded="false">
+    通知<span class="badge badge-danger"><%=current_user.notifications.where(read: false).count %></span>
+  </button>
+ <div class="dropdown-menu mb-3">
+   <% if current_user.notifications.where(read: false).any? %>
+    <% current_user.notifications.where(read: false).limit(5).order(created_at: :desc).each do |notification| %>
+     <%=link_to notification_messages(notification), notification_path(notification),method: :patch, class: "dropdown-item" %>
+    <% end %>
+   <% else %> 
+     <span class="dropdown-item">通知はありません</span>
+   <% end %>
+ </div>  
+</div> 
