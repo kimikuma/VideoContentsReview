@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   has_many :tags, through: :tag_items
   has_many :vod_items, dependent: :destroy
   has_many :vods, through: :vod_items
-
+  has_many :notifications, as: :notifiable, dependent: :destroy
   validates :title, presence: true
   validates :impression, presence: true, length: {maximum: 50}
 
@@ -61,5 +61,8 @@ class Post < ApplicationRecord
   scope :old, ->{where(status: true).order(created_at: :asc)}
   scope :star_count, ->{where(status: true).order(star: :desc)}
   scope :genre, ->{where(status: true).joins(:genre).order('genres.name')}
+
+    
+    
 end
 
