@@ -19,7 +19,8 @@
             <%=link_to post.title, post_path(post) %></br>
             <%=post.impression %></br>
             <%=render "public/posts/star_review", post: post %>
-            <%=display_tag_items_link(post.tag_items) %>
+            <%=display_tag_items_link(post.tag_items) %></br>
+            <%=post.created_at.strftime("%Y/%m/%d") %>
           </div> 
         <% end %>
       </div>

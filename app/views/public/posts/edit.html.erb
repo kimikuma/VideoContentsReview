@@ -1,7 +1,7 @@
 
 <div class="container mt-2" id="form_image">
   <div class="row">
-    <div class="col-md-7 offset-md-4 col-10 offset-2">
+    <div class="col-md-8 offset-md-4 col-10 offset-2">
       <%= link_to post_path(@post) do %>
         <i class="fa-solid fa-arrow-left" style="font-size: 1.5em;"></i>
       <% end %>  
@@ -59,7 +59,9 @@
             <%= f.submit "更新", class: "btn btn-outline-success mt-2 mb-3" %>
           </div>
       <% end %>    
-      <%=link_to "削除はこちら",post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか?", style: "color: red;" %>
+      <%=link_to post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか?", style: "color: red;" do %>
+        <i class="fa-solid fa-trash"></i>削除はこちら
+      <% end %>  
     </div>
   </div>
 </div>      

@@ -179,26 +179,16 @@ body {
   padding: 20px;
 }
 
-.search_list {
-  border: 2px solid black;
-  border-radius: 30px;
-  padding: 20px;
-  position: relative;
-  height: 300px;
-}
-
-.search_list_index {
-  position: absolute;
-  bottom: 7px;
-  right: 15px;
-}
-
 .tag_list, .vod_list {
   position: relative;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.7);
   margin-top: 65px;
+}
+
+.tag_list_link {
+  color: #000000;
 }
 
 .list_title {
@@ -220,6 +210,19 @@ body {
   padding: 20px;
 }
 
+.admin-tag-list {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 5px;
+}
+
+.new-tag-contents {
+  background-color: #fff;
+  box-shadow: 0 5px 5px 2px #000000;
+  padding-bottom: 20px;
+  width: 80%
+}
 
 .wrap {
   width: 100%;
@@ -238,29 +241,41 @@ body {
 }
 
 
-.tab:first-child, .search-tab:first-child {
+.tab:first-child, .search-tab:first-child, .new-tab:first-child {
   border-left: none;
 }
 
 
-.tab-active, .search-tab-active {
+.tab-active, .search-tab-active, .new-tab-active {
   color: #fff;
   background: #ccc;
   transition: all 0.2s ease-in-out;
 }
 
-.tabbox, .search-tabbox {
+.tabbox, .search-tabbox, .new-tabbox {
   display: none;
 }
 
-.box-show, .search-box-show {
+.box-show, .search-box-show, .new-box-show {
   display: block;
 }
 
-.tab:hover, .search-tab:hover {
+.tab:hover, .search-tab:hover, .new-tab:hover {
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
   transform: translateY(-1px);
 }
+
+.new-tab {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border-left: solid 1px #fff;
+  border-bottom: solid 1px #fff;
+  background-color: #fff;
+  display: inline;
+  color: #000;
+}
+
 
 .mypost_contents {
   border: 1px solid #ccc;
@@ -407,4 +422,8 @@ footer {
     padding: 5px;
     width: 195px;
   }  
+
+  .new-tag-contents {
+   margin-left: 25px;
+  } 
 } 
