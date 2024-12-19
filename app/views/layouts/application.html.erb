@@ -19,6 +19,8 @@
   </header>  
   <body>
     <%=render "layouts/flash_messages" %>
+    <button class="open-modal"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <%=render "layouts/search_form_user", vods: @vods, tags: @tags %>
     <%= yield %>
   </body>
   <footer>

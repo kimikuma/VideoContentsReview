@@ -1,6 +1,6 @@
 <div class="dropdown">
   <button class="btn btn-outline-secondary dropdown-toggle ml-md-4 mb-3" type="button" data-toggle="dropdown" aria-expanded="false">
-    通知<span class="badge badge-danger"><%=current_user.notifications.where(read: false).count %></span>
+  <span class="badge badge-danger"><%=current_user.notifications.where(read: false).count %></span><i class="fa-solid fa-bell"></i>
   </button>
  <div class="dropdown-menu mb-3">
    <% if current_user.notifications.where(read: false).any? %>

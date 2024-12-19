@@ -1,8 +1,11 @@
 <div class="container mt-3">
- <%=render "public/tags/tag_search_form" %>
-  <div class="row">
-    <%=render "public/posts/tag_list", tags: @tags, vods: @vods %>  
-    <div class="col-md-10 col-12 mt-3">
+  <div class="row"> 
+    <div class="col-11 offset-1">
+     <h5>タグ・配信サイト検索は<i class="fa-solid fa-magnifying-glass"></i>へ</h5>
+    </div>
+  </div>
+  <div class="row">    
+    <div class="col-11 offset-1 mt-3">
       <%=link_to "新着順",search_tag_path(tag: params[:tag],latest: true), class: "btn btn-outline-secondary btn-sm mr-1 mb-3" %>
       <%=link_to "古い順",search_tag_path(tag: params[:tag],old: true), class: "btn btn-outline-secondary btn-sm mr-1 mb-3" %>
       <%=link_to "評価順",search_tag_path(tag: params[:tag],star_count: true), class: "btn btn-outline-secondary btn-sm mb-3" %>
@@ -11,8 +14,8 @@
      <% end %>
       <div class="d-flex flex-wrap"> 
         <% @posts.each do |post| %>
-          <div class="mb-3 mx-2">
-            <%=image_tag post.get_image(100,100), class: "mb-3" %></br>
+          <div class="mb-3 mr-md-5 mb-md-5 search-contents">
+            <%=image_tag post.get_image(300,300), class: "mb-3" %></br>
             <%=link_to post.title, post_path(post) %></br>
             <%=post.impression %></br>
             <%=render "public/posts/star_review", post: post %>
