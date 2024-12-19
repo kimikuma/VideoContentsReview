@@ -22,6 +22,60 @@ body {
   background-size: cover;
 }
 
+.logo-animation {
+  animation: logo 4s ease-in-out infinite alternate;
+}
+
+@keyframes logo {
+  0%{
+    transform: translate(0,0)rotate(-15deg);
+  }
+  50%{
+    transform: translate(0,-15)rotate(0deg);
+  }
+  100%{
+    transform: translate(0,0)rotate(15deg);
+  }
+}
+
+.open-modal {
+  border-radius: 50%;
+  padding: 10px;
+  position: fixed;
+  top: 15px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.modal {
+  position: fixed;
+  top: 10px;
+  left: 80%;
+  width: 20%;
+  display: none;
+  z-index: 1000;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.search-form {
+  position: relative;
+  margin-top: 50px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 5px;
+  left: 195px;
+}
+
+.search-form-img {
+  position: absolute;
+  top: 45px;
+  left: 180px;
+  width: 50px;
+  height: 50px;
+}
 
 #background {
   background-image: url('../images/background.png');
@@ -129,14 +183,22 @@ body {
   border: 2px solid black;
   border-radius: 30px;
   padding: 20px;
+  position: relative;
+  height: 300px;
+}
+
+.search_list_index {
+  position: absolute;
+  bottom: 7px;
+  right: 15px;
 }
 
 .tag_list, .vod_list {
   position: relative;
-  border: 3px solid #ccc;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.7);
+  margin-top: 65px;
 }
 
 .list_title {
@@ -144,18 +206,26 @@ body {
   top: -33px;
   left: -2px;
   font-size: 15px;
-  color: #fff;
-  padding: 5px;
-  background-color: rgba(204, 204, 204, 0.9);
+  color: #000000;
+  padding: 4px;
   border-radius: 5px;
+  color: #fff;
+  background-color: rgba(0,0,0,0.7);
   box-shadow: 2px 0 5px 0 rgba(0, 0, 0, 0.5);
 }
+
+.search-contents {
+  border-radius: 30px;
+  box-shadow: 0 3px 5px 2px #000000;
+  padding: 20px;
+}
+
 
 .wrap {
   width: 100%;
 }
 
-.tab {
+.tab, .search-tab {
   width: 100%;
   padding: 10px;
   cursor: pointer;
@@ -168,25 +238,26 @@ body {
 }
 
 
-.tab:first-child {
+.tab:first-child, .search-tab:first-child {
   border-left: none;
 }
 
-.tab-active {
+
+.tab-active, .search-tab-active {
   color: #fff;
   background: #ccc;
   transition: all 0.2s ease-in-out;
 }
 
-.tabbox {
+.tabbox, .search-tabbox {
   display: none;
 }
 
-.box-show {
+.box-show, .search-box-show {
   display: block;
 }
 
-.tab:hover{
+.tab:hover, .search-tab:hover {
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
   transform: translateY(-1px);
 }
@@ -318,4 +389,22 @@ footer {
     width: 75% !important;
   }
   
+  .search_list {
+    display: none;
+  }
+
+  .open-modal {
+    top: 110px;
+    right: 50px;
+  }
+  
+  .modal {
+    left: 40%;
+    width: 60%;
+  }
+
+  .tag_list, .vod_list {
+    padding: 5px;
+    width: 195px;
+  }  
 } 
