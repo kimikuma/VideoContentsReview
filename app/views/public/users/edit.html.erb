@@ -22,7 +22,9 @@
           <div class="actions">
             <%= f.submit "更新", class: "btn btn-outline-success mt-4 mb-3" %>
           </div>
-          <%=link_to "退会はこちらから",confirm_path, style: "color: red;" %>
+          <%=link_to confirm_path, style: "color: red;" do %>
+            <i class="fa-solid fa-user-xmark"></i>退会はこちら
+          <% end %>  
        <% end %>    
     </div>
   </div>

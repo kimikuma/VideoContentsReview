@@ -17,6 +17,15 @@ $(document).on('turbolinks:load', function() {
       $('.search-tabbox').eq(index).addClass('search-box-show');
     });
   });
+  $(function() {
+    $('.new-tab').on('click', function(){
+      $('.new-tab-active').removeClass('new-tab-active');
+      $(this).addClass('new-tab-active');
+      $('.new-box-show').removeClass('new-box-show');
+      const index = $(this).index();
+      $('.new-tabbox').eq(index).addClass('new-box-show');
+    });
+  });
 });
 
 $(document).on('turbolinks:load', function() {

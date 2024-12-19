@@ -1,6 +1,9 @@
 <div class="container mt-2" id="form_image">
   <div class="row">
     <div class="col-md-7 offset-md-4 col-10 offset-2">
+      <%= link_to admin_post_path(@post) do %>
+       <i class="fa-solid fa-arrow-left" style="font-size: 1.5em;"></i>
+      <% end %>  
       <h2 class="post_form mt-3">Edit</h2>
       <%=render "layouts/error_messages", object: @post %>
       <%=form_with model: [:admin, @post] do |f| %>      
@@ -32,7 +35,6 @@
            <%=render "admin/posts/star_review_edit", post: @post %> 
           <div class="actions">
             <%= f.submit "更新", class: "btn btn-outline-success mt-4" %>
-            <%=link_to "戻る",admin_post_path(@post), class: "btn btn-outline-warning mt-4 mx-5" %>
           </div>
       <% end %>  
     </div>

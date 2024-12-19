@@ -6,9 +6,10 @@
         <div class="d-flex flex-wrap mt-4">
          <% @posts.each do |post| %>
           <div class="mb-3 mr-md-5 mb-md-5 search-contents">
-            <%=image_tag post.get_image(300,300) %><br>
-            <%=link_to post.title, post_path(post) %><br>
-            <%=post.impression %><br> 
+            <%=image_tag post.get_image(300,300) %></br></br>
+            <%=link_to post.title, post_path(post) %></br>
+            <%=post.impression %></br>
+            <%=post.created_at.strftime("%Y/%m/%d") %>
           </div>  
          <% end %>
         </div>    
