@@ -1,20 +1,22 @@
 <div class="mt-3 new-tag-contents">
-  <ul class="new-tab-list list-unstyled mt-2 ml-2 mb-4">
+  <ul class="new-tab-list list-unstyled mt-2 ml-2 mb-4 mb-md-4">
    <li class="new-tab new-tab-active">タグ</li>
    <li class="new-tab">ジャンル</li>
    <li class="new-tab">配信サイト</li>
   </ul>
+  <p class="tab-border"></p>
   <div class="new-tabbox-contents">
    <div class="new-tabbox new-box-show">
-    <h5>タグ</h5>
+    <p style="font-size: 1.2em" class="mb-2 mt-3"><span style="color: orange;">⚫︎</span>タグ</p>
      <div class="d-flex flex-wrap">
       <% @tags.each do |tag| %>
-        <div class="mx-2 mb-2 admin-tag-list mr-1">
+        <div class="mr-2 mb-2 admin-tag-list mr-1">
         <%=link_to tag.name, edit_admin_tag_path(tag), class: "tag_list_link" %>
         </div>  
       <% end %>
      </div> 
-     <div>
+     <p class="text-center mt-3 new-post-button">new post ∨</p>
+     <div class="new-form">
       <%=render "layouts/error_messages", object: @tag %>
       <%=form_with model: [:admin, @tag] do |f| %>
         <%=f.text_field :name, placeholder: "タグ", class: "mt-4 ml-3 w-75" %><br>
@@ -23,15 +25,16 @@
      </div>
    </div>
    <div class="new-tabbox">
-    <h5>ジャンル</h5>
+    <p style="font-size: 1.2em" class="mb-2 mt-3"><span style="color: orange;">⚫︎</span>ジャンル</p>
      <div class="d-flex flex-wrap">
       <% @genres.each do |genre| %>
-        <div class="mx-2 mb-2 admin-tag-list mr-1">
+        <div class="mr-2 mb-2 admin-tag-list mr-1">
          <%=link_to genre.name, edit_admin_genre_path(genre), id: "genre_edit_form", class: "tag_list_link" %>
         </div>
       <% end %>
      </div>  
-     <div>
+     <p class="text-center mt-3 new-post-button">new post ∨</p>
+     <div class="new-form">
       <%=render "layouts/error_messages", object: @genre %>
       <%=form_with model: [:admin, @genre] do |f| %>
         <%=f.text_field :name, placeholder: "ジャンル", class: "mt-4 ml-3 w-75" %><br>
@@ -40,15 +43,16 @@
      </div>
    </div>
    <div class="new-tabbox">
-    <h5>配信サイト</h5>
+    <p style="font-size: 1.2em" class="mb-2 mt-3"><span style="color: orange;">⚫︎</span>配信サイト</p>
      <div class="d-flex flex-wrap">
       <% @vods.each do |vod| %>
-        <div class="mx-2 mb-2 admin-tag-list mr-1">
+        <div class="mr-2 mb-2 admin-tag-list mr-1">
           <%=link_to vod.name, edit_admin_vod_path(vod), class: "tag_list_link" %>
         </div>  
       <% end %>
      </div> 
-     <div>
+     <p class="text-center mt-3 new-post-button">new post ∨</p>
+     <div class="new-form">
       <%=render "layouts/error_messages", object: @vod %>
       <%=form_with model: [:admin, @vod] do |f| %>
         <%=f.text_field :name, placeholder: "配信サイト", class: "mt-4 ml-3 w-75" %><br>
