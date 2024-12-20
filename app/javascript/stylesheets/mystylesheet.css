@@ -38,6 +38,16 @@ body {
   }
 }
 
+.logo-img {
+  display: none;
+  position: absolute;
+  bottom: 80px;
+  right: 260px;
+  width: 100px;
+  height: 100px;
+  transform: rotate(-20deg);
+}
+
 .open-modal {
   border-radius: 50%;
   padding: 10px;
@@ -211,17 +221,18 @@ body {
 }
 
 .admin-tag-list {
-  border: 1px solid #ccc;
+  border: 1px solid #e2e2e2;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: #e2e2e2;
   padding: 5px;
 }
 
 .new-tag-contents {
   background-color: #fff;
   box-shadow: 0 5px 5px 2px #000000;
-  padding-bottom: 20px;
-  width: 80%
+  padding: 20px;
+  width: 50%;
+  margin: 20px auto;
 }
 
 .wrap {
@@ -240,15 +251,30 @@ body {
   color: #000;
 }
 
+.new-tab {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border-left: solid 1px #e2e2e2;
+  border-bottom: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+  display: inline;
+  color: #000;
+}
 
 .tab:first-child, .search-tab:first-child, .new-tab:first-child {
   border-left: none;
 }
 
-
-.tab-active, .search-tab-active, .new-tab-active {
+.tab-active, .search-tab-active {
   color: #fff;
   background: #ccc;
+  transition: all 0.2s ease-in-out;
+}
+
+.new-tab-active {
+  color: #000000;
+  background: #fff;
   transition: all 0.2s ease-in-out;
 }
 
@@ -265,17 +291,24 @@ body {
   transform: translateY(-1px);
 }
 
-.new-tab {
-  width: 100%;
-  padding: 10px;
-  cursor: pointer;
-  border-left: solid 1px #fff;
-  border-bottom: solid 1px #fff;
-  background-color: #fff;
-  display: inline;
-  color: #000;
+.tab-border {
+  width: 90%;
+  border-bottom: 1px solid #e2e2e2;
+  text-align: center;
 }
 
+.new-post-button:hover {
+  color: #e2e2e2;
+  transform: translate(0,5px);
+}
+
+.new-form {
+  display: none;
+}
+
+.new-form-active {
+  display: block;
+}
 
 .mypost_contents {
   border: 1px solid #ccc;
@@ -296,7 +329,7 @@ footer {
   padding: 10px;
 } 
 
-@media screen and (max-width:425px){
+@media screen and (max-width:768px){
   #background{
     background-position: center;
     height: 300px;
@@ -424,6 +457,12 @@ footer {
   }  
 
   .new-tag-contents {
-   margin-left: 25px;
+   margin: 0 auto;
+   width: 80%;
   } 
+
+  .logo-img {
+    right:210px;
+  }
+
 } 

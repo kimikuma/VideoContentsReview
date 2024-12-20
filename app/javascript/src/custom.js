@@ -24,6 +24,15 @@ $(document).on('turbolinks:load', function() {
       $('.new-box-show').removeClass('new-box-show');
       const index = $(this).index();
       $('.new-tabbox').eq(index).addClass('new-box-show');
+    });  
+    $('.new-post-button').on('click',function(){
+      if($('.new-post-button').hasClass('new-post-button-active')){
+        $(this).removeClass('new-post-button-active');
+        $('.new-form').removeClass('new-form-active');
+      }else {
+        $(this).addClass('new-post-button-active');
+        $('.new-form').addClass('new-form-active');
+      } 
     });
   });
 });
@@ -45,10 +54,12 @@ $(document).on('turbolinks:load', function() {
   });
   $(function(){
     $(".open-modal").on('click', function(){
-      $(".modal").fadeIn(1500);
+      $(".modal").fadeIn(900);
+      $(".logo-img").fadeIn(1300);
     });
     $(".close-modal").on('click', function(){
-      $(".modal").fadeOut(1500);
+      $(".modal").fadeOut(900);
+      $(".logo-img").fadeOut(600);
     });
   });
 });
