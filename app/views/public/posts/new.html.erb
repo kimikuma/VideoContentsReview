@@ -19,7 +19,7 @@
           </div>
           <div class="field">
             <%= f.label :genre_id %><br />
-            <%= f.select :genre_id,options_from_collection_for_select(Genre.all, :id, :name), class: "w-50 select" %>
+            <%= f.select :genre_id,options_from_collection_for_select(Genre.all, :id, :name) %>
           </div>
           <div class="field">
             <%= f.label :vod_ids, "SelectVODs" %><br />
