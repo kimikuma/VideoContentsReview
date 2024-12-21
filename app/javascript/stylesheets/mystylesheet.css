@@ -247,6 +247,10 @@ body {
   border-radius: 30px;
   box-shadow: 0 3px 5px 2px #000000;
   padding: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 340px;
 }
 
 .admin-tag-list {
