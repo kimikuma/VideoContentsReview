@@ -53,6 +53,24 @@ class Post < ApplicationRecord
     end   
   end 
 
+  def save_vods(vods)
+    #postsに紐づくtag一覧を取得→current_tagsに代入
+    current_vods=self.vods unless self.vods.nil?
+    #current_tagsと受け取ったtagの差をpresence_tagsに代入(既に登録済だけど今回のタグにないもの)
+    presence_vods=current_vods-vods  
+    #受け取ったtagとcurrent_tagsの差をnew_tagに代入(新しいタグ)
+    new_vods=vods-current_vods
+    #既に登録済で更新された配信サイトに含まれないものをvod_itemから削除
+    presence_vods.each do |vod|
+     self.vods.delete Vod.find_by(id: vod)
+    end 
+    #更新された配信サイトで未登録の配信サイトを新規登録
+    new_vods.each do |vod|
+      vods=Vod.find_by(id: vod)
+      self.vods<< vods if vods.present?
+    end   
+  end 
+
   def post_status
     status==false
   end  

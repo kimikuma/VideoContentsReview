@@ -9,16 +9,12 @@ class Public::PostsController < Public::ApplicationController
 
   def create
     @post=current_user.posts.new(post_params)
-    tags=params[:post][:tag].split('#')
+    tags=params[:post][:tag].split('#').reject(&:empty?)
+    vods=params[:post][:vod_ids].reject(&:empty?)
     
     if @post.save
-      if params[:post][:vod_ids]
-        # @vod=params[:post][:vod_ids]
-       params[:post][:vod_ids].each do |vod_id|
-        VodItem.find_or_create_by(post_id: @post.id, vod_id: vod_id)
-       end
-      end
       @post.save_tags(tags)
+      @post.save_vods(vods)
       flash[:notice]="投稿に成功しました!"
       redirect_to post_path(@post)
     else
@@ -56,15 +52,10 @@ class Public::PostsController < Public::ApplicationController
   def update
     @post=current_user.posts.find(params[:id])
     tags=params[:post][:tag].split('#').reject(&:empty?)
-
+    vods=params[:post][:vod_ids].reject(&:empty?)
     if @post.update(post_params)
-      if params[:post][:vod_ids]
-        # @vod=params[:post][:vod_ids]
-       params[:post][:vod_ids].each do |vod_id|
-        VodItem.find_or_create_by(post_id: @post.id, vod_id: vod_id)
-       end
-      end
       @post.save_tags(tags)
+      @post.save_vods(vods)
       flash[:notice]="更新に成功しました！"
       redirect_to post_path(@post)
     else

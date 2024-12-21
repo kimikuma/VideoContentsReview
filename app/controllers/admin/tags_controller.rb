@@ -7,7 +7,7 @@ class Admin::TagsController < ApplicationController
       redirect_to admin_genres_path
     else 
       flash.now[:alert]="登録に失敗しました"
-      render "new"
+      redirect_to request.referer
     end 
   end      
 

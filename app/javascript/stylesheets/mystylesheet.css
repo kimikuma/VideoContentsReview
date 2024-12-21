@@ -12,12 +12,9 @@ html {
 }
 
 body {
-  font-family: "DynaPuff", sans-serif;
-  font-optical-sizing: auto;
+  font-family: "Hachi Maru Pop", serif;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
   background-image: url('../images/body.png');
   background-size: cover;
 }
@@ -136,6 +133,38 @@ body {
   height: 300px;
   border-radius: 50%;
 }
+
+.typing {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid #000000;
+  animation: typing 4s steps(30) 1s 1 normal both, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from{
+    width: 0;
+  }
+  to{
+    width: 100%;
+  }
+  100%{
+    border-right: 0px solid #000000;
+  }
+}
+
+@keyframes blink {
+  0%,100%{
+    border-color: #000000;
+  }
+  50%{
+    border-color: transparent;
+  }
+}
+
 
 .devise-image {
   background-image: url('../images/devise.png');
@@ -463,6 +492,13 @@ footer {
 
   .logo-img {
     right:210px;
+  }
+
+  .dropdown-menu {
+    width:400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
 } 

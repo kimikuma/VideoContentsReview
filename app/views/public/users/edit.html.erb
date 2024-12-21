@@ -4,11 +4,11 @@
       <%=link_to mypage_path do %>
         <i class="fa-solid fa-arrow-left" style="font-size: 1.5em;"></i>
       <% end %>  
-      <h2 class="mt-2">Edit</h2>
+      <h2 class="mt-2">編集</h2>
       <%=render "layouts/error_messages", object: @user %>
        <%=form_with model: [:public, @user], url: user_path(@user), method: :patch do |f| %>
           <div class="field">
-            <%= f.label :name %><br />
+            <%= f.label :name, "名前" %><br />
             <%= f.text_field :name, autofocus: true, placeholder: "映画太郎", class: "w-50" %>
           </div>
           <div class="field">
@@ -16,7 +16,7 @@
             <%= f.email_field :email, placeholder: "eiga@sample.com", class: "w-50" %>
           </div>
           <div class="field">
-            <%= f.label :image %><br />
+            <%= f.label :image, "画像" %><br />
             <%= f.file_field :image, accept: "image/*", class: "w-50" %>
           </div>
           <div class="actions">

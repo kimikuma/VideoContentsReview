@@ -12,7 +12,7 @@
     <%=f.radio_button :model, false, class: "mb-3" %>
     <%=f.label :model_false,"投稿", class: "mb3" %><br>
     <%=f.select :condition, options_for_select({"部分一致"=>"partial","前方一致"=>"forward","後方一致"=>"backward","完全一致"=>"perfect"}) %><br>
-    <%=f.submit "Search", class: "btn btn-outline-success mt-3" %>
+    <%=f.submit "検索", class: "btn btn-outline-success mt-3" %>
     <% end %>
   </div>
   <div class="search-form search-tabbox">

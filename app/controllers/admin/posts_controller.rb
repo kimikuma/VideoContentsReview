@@ -27,11 +27,9 @@ class Admin::PostsController < Admin::ApplicationController
   
   def update 
     @post=Post.find(params[:id])
+    vods=params[:post][:vod_ids].reject(&:empty?)
     if @post.update(post_params)
-     if params[:post][:vod_ids]
-      @vod=params[:post][:vod_ids]
-      VodItem.find_or_create_by(post_id: @post.id, vod_id: @vod)
-     end  
+      @post.save_vods(vods)
       Notification.create(user_id: @post.user.id, notifiable: @post)
       flash[:notice]="更新に成功しました!"
       redirect_to admin_post_path(@post)
