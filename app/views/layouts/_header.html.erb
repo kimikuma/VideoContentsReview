@@ -10,13 +10,13 @@
      <% unless user_signed_in? || admin_user_signed_in? %>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <%=link_to "SignUp", new_user_registration_path, class: "nav-link" %>
+          <%=link_to "新規登録", new_user_registration_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%=link_to "SignIn", new_user_session_path, class: "nav-link" %>
+          <%=link_to "ログイン", new_user_session_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%=link_to "GestSignIn", users_guest_sign_in_path, method: :post, class: "nav-link" %>
+          <%=link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "nav-link" %>
         </li>
       </ul> 
       <% else %>
@@ -25,16 +25,16 @@
        <% else %> 
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-             <%=link_to "MyPage", mypage_path, class: "nav-link" %>
+             <%=link_to "マイページ", mypage_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%=link_to "Posts", posts_path, class: "nav-link" %>
+            <%=link_to "投稿", posts_path, class: "nav-link" %>
           </li> 
           <li class="nav-item">
-            <%=link_to "New", new_post_path, class: "nav-link" %>
+            <%=link_to "新規投稿", new_post_path, class: "nav-link" %>
           </li> 
            <li class="nav-item">
-            <%=link_to "SignOut", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            <%=link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
            <li class="nav-item">
              <%=render "public/notifications/notification" %>

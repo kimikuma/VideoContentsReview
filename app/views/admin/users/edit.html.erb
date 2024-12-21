@@ -4,11 +4,11 @@
       <%= link_to admin_user_path(@user) do %>
         <i class="fa-solid fa-arrow-left" style="font-size: 1.5em;"></i>
       <% end %>
-      <h2>Edit</h2>
+      <h2>編集</h2>
       <%=render "layouts/error_messages", object: @user %>
        <%=form_with model: [:admin, @user] do |f| %>
           <div class="field">
-            <%= f.label :name %><br />
+            <%= f.label :name, "名前" %><br />
             <%= f.text_field :name, autofocus: true, class: "w-50" %>
           </div>
           <div class="field">
@@ -16,7 +16,7 @@
             <%= f.email_field :email, class: "w-50" %>
           </div>
            <div class="field">
-            <%= f.label :image %><br />
+            <%= f.label :image, "画像" %><br />
             <%= f.file_field :image, accept: "image/*", class: "w-50" %>
           </div>
           <div class="actions">
