@@ -26,7 +26,7 @@
       <% if current_admin_user %>
        <%=render "layouts/search_form_admin" %>
       <% else %>
-       <%=render "layouts/search_form_user", vods: @vods, tags: @tags %>
+       <%=render "layouts/search_form_user", vods: @vods, tags: @tags, genres: @genres %>
       <% end %>
     <% end %>   
     <%= yield %>

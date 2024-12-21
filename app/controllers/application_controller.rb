@@ -5,5 +5,6 @@ class ApplicationController < ActionController::Base
    def set_tags
     @vods=Vod.page(params[:page]).per(20)
     @tags=Tag.limit(10)
+    @genres=Genre.page(params[:page]).per(20)
    end  
 end

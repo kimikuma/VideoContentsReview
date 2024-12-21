@@ -9,6 +9,12 @@
     <% vods.each do |vod| %>
       <%=link_to vod.name, search_vod_path(vod: vod.name), class: "tag_list_link" %>
     <% end %>
-  </div>  
+  </div>
+  <div class="genre_list">
+    <span class="list_title"><i class="fa-solid fa-video"></i>ジャンル</span>
+    <% genres.each do |genre| %>
+      <%=link_to genre.name, search_genre_path(genre: genre.name), class: "tag_list_link" %>
+    <% end %>
+  </div>    
   
   

@@ -14,7 +14,7 @@
         <%=render "public/posts/star_review", post: @post %>
       </div> 
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%=@post.genre.name %></li>
+        <li class="list-group-item"><%=link_to @post.genre.name,search_genre_path(genre: @post.genre.name) %></li>
         <li class="list-group-item"><%=image_tag @post.user.get_profile_image(50,50) %>
         <%=link_to @post.user.name, user_path(@post.user) %>
         </li>
