@@ -29,7 +29,7 @@
          <% @posts.each do |post| %>
           <div class="mx-2 mt-3 mypost_contents">
             <%=link_to post_path(post) do %>
-                <%=image_tag post.get_image(120,120), class: "post_img" %></br>
+                <%=image_tag post.get_image(120,120), class: "post_img", style: "width: 120px; height: 80px;" %></br>
             <% end %>
             <i class="fa-solid fa-heading"></i><%=post.title %></br>
             <i class="fa-solid fa-face-smile"></i><%=post.impression %></br>

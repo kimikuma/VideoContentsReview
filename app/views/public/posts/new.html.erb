@@ -6,28 +6,28 @@
       <%=render "layouts/error_messages", object: @post %>
       <%=form_with model: [:public, @post], url: posts_path, method: :post do |f| %>      
           <div class="field">
-            <%= f.label :title %><br />
+            <%= f.label :title, "タイトル" %><br />
             <%= f.text_field :title, autofocus: true, placeholder: "映画名", class: "w-50" %>
           </div>
           <div class="field">
-            <%= f.label :impression %><br />
+            <%= f.label :impression, "感想" %><br />
             <%= f.text_area :impression, placeholder: "感想", class: "w-50" %>
           </div>
            <div class="field">
-            <%= f.label :image %><br />
+            <%= f.label :image, "画像" %><br />
             <%= f.file_field :image, accept: "image/*", class: "w-50" %>
           </div>
           <div class="field">
-            <%= f.label :genre_id %><br />
-            <%= f.select :genre_id,options_from_collection_for_select(Genre.all, :id, :name), class: "w-50" %>
+            <%= f.label :genre_id, "ジャンル" %><br />
+            <%= f.select :genre_id,options_from_collection_for_select(Genre.all, :id, :name) %>
           </div>
           <div class="field">
-            <%= f.label :vod_ids, "SelectVODs" %><br />
-            <%= f.select :vod_ids, options_from_collection_for_select(Vod.all, :id, :name) %>
+            <%= f.label :vod_ids, "配信サイト" %><br />
+            <%= f.select :vod_ids, options_from_collection_for_select(Vod.all, :id, :name), {}, multiple: true %>
           </div>
           <% if @post.id.nil? %>
            <div class="field" id="star">
-            <%= f.label :star %>
+            <%= f.label :star, "レビュー" %>
             <%= f.hidden_field :star %>
             <div id="post_raty"></div>
            </div>
@@ -38,7 +38,7 @@
             </div> 
           <% end %>
           <div class="field">
-            <%=f.label :tag, "タグ" %></br>
+            <%=f.label :tag, "tag" %></br>
             <%=f.text_field :tag, placeholder: "#俳優#アクション" %>
           </div>  
           <div class="field">
@@ -50,7 +50,7 @@
           <div class="actions">
             <%= f.submit "新規投稿", class: "btn btn-outline-success mt-4" %>
           </div>
-      <% end %>    
+      <% end %> 
     </div>
   </div>
 </div>     

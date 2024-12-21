@@ -26,3 +26,4 @@ import '../stylesheets/mystylesheet.css';
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+

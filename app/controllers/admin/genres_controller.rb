@@ -5,7 +5,7 @@ class Admin::GenresController < Admin::ApplicationController
     @genre=Genre.new
     @vods=Vod.all 
     @vod=Vod.new
-    @tags=Tag.all
+    @tags=Tag.limit(20)
     @tag=Tag.new
   end 
 

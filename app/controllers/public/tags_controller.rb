@@ -20,9 +20,9 @@ class Public::TagsController < ApplicationController
     end        
   end   
 
-  def index
-    @vods=Vod.page(params[:page]).per(20)
-    @tags=Tag.page(params[:page]).per(20)
-  end  
+  # def index
+  #   @vods=Vod.page(params[:page]).per(20)
+  #   @tags=Tag.limit(10)
+  # end  
   
 end

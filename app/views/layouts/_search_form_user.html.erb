@@ -1,7 +1,32 @@
-<%=form_with url: searches_path, method: :get do |f| %>
- <%=f.text_field :word, placeholder: "Search" %><br>
- <%=f.select :model, options_for_select({"user"=>"User","投稿"=>"Post"}) %>
- <%=f.select :condition, options_for_select({"部分一致"=>"partial","前方一致"=>"forward","後方一致"=>"backward","完全一致"=>"perfect"}) %>
- <%=f.submit "Search", class: "btn btn-outline-success mx-2 mt-1" %>
-<% end %> 
+<div class="modal">
+ <ul class="tab-list list-unstyled">
+  <li class="search-tab search-tab-active">投稿検索</li>
+  <li class="search-tab">タグ検索</li>
+ </ul>
+ <div class="search-tabbox-contents"> 
+  <div class="search-form search-tabbox search-box-show">
+    <%=form_with url: searches_path, method: :get do |f| %>
+    <%=f.text_field :word, placeholder: "Search",class: "mb-3" %><br>
+    <%=f.radio_button :model, true, class: "mb-3" %>
+    <%=f.label :model_true,"user", class: "mb-3" %>
+    <%=f.radio_button :model, false, class: "mb-3" %>
+    <%=f.label :model_false,"投稿", class: "mb3" %><br>
+    <%=f.select :condition, options_for_select({"部分一致"=>"partial","前方一致"=>"forward","後方一致"=>"backward","完全一致"=>"perfect"}) %><br>
+    <%=f.submit "検索", class: "btn btn-outline-success mt-3" %>
+    <% end %>
+  </div>
+  <div class="search-form search-tabbox">
+    <%=form_with url: search_tag_path, method: :get do |f| %>
+     <%=f.text_field :tag, placeholder: "タグ検索", class: "mb-3" %>
+     <%=f.submit "検索", class: "btn btn-outline-success" %>
+    <% end %>
+    <%=render "public/tags/index", vods: vods, tags: tags %> 
+  </div>
+ </div>
+ <button class="close-modal"><i class="fa-solid fa-circle-xmark"></i></button>
+ <%=image_tag "zebra-470305_640.png" ,class: "search-form-img" %>
+</div> 
+ 
+ 
+
  

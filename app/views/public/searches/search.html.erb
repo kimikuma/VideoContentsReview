@@ -1,16 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7 offset-md-2 mt-4 col-11 offset-1">
-      <h3><%=@model %>s Search for <%=@word %></h3>
-       <% if @model=="Post" %>
-        <% @posts.each do |post| %>
-         <div class="d-flex mt-3">
-          <%=image_tag post.get_image(100,100) %>
-          <p><%=link_to post.title, post_path(post) %><br>
-          <%=post.impression %>
-          </p>
-         </div> 
-        <% end %>   
+    <div class="col-11 offset-1 mt-4">
+      <h3>検索結果 <%=@word %></h3>
+       <% if @model=="false" %>
+        <div class="d-flex flex-wrap mt-4">
+         <% @posts.each do |post| %>
+          <div class="mb-3 mr-md-5 mb-md-5 search-contents">
+            <%=image_tag post.get_image(300,300) %></br></br>
+            <%=link_to post.title, post_path(post) %></br>
+            <%=post.impression %></br>
+            <%=post.created_at.strftime("%Y/%m/%d") %>
+          </div>  
+         <% end %>
+        </div>    
        <% else %>
         <% @users.each do |user| %>
          <div class="d-flex mt-3"> 

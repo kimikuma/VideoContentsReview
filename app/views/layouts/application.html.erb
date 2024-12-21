@@ -9,18 +9,47 @@
     <script src="https://kit.fontawesome.com/238758c22e.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=DynaPuff&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Kablammo&family=Londrina+Sketch&family=Noto+Sans+JP:wght@100..900&family=Quicksand:wght@300..700&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/238758c22e.js" crossorigin="anonymous"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=DynaPuff&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Hachi+Maru+Pop&family=Kablammo&family=Londrina+Sketch&family=M+PLUS+Rounded+1c&family=Noto+Sans+JP:wght@100..900&family=Quicksand:wght@300..700&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/i18n/ja.js"></script>
   </head>
   <header>
     <%=render "layouts/header" %>
   </header>  
   <body>
     <%=render "layouts/flash_messages" %>
+    <% if user_signed_in? || admin_user_signed_in? %>
+      <button class="open-modal"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <% if current_admin_user %>
+       <%=render "layouts/search_form_admin" %>
+      <% else %>
+       <%=render "layouts/search_form_user", vods: @vods, tags: @tags %>
+      <% end %>
+    <% end %>   
     <%= yield %>
+    <%=image_tag "logo.png", class: "logo-img" %>
+    <%#select2の設定 #%>
+     <script>
+      $(document).ready(function() {
+        $('select').select2({
+          language: "ja",
+          width: "180px",
+          placeholder: "選択してください",
+          allowClear: true
+        });
+        $("#post_vod_ids").select2({
+          language: "ja",
+          width: "230px",
+          placeholder: "配信サイト選択してください",
+          allowClear: true,
+          multiple: true,
+          closeOnSelect: false
+        });
+      });
+     </script>
   </body>
   <footer>
     <%=render "layouts/footer" %>

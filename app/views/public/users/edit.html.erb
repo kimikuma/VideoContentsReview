@@ -1,11 +1,14 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-md-7 offset-md-4 col-10 offset-2">
-      <h2>Edit</h2>
+      <%=link_to mypage_path do %>
+        <i class="fa-solid fa-arrow-left" style="font-size: 1.5em;"></i>
+      <% end %>  
+      <h2 class="mt-2">編集</h2>
       <%=render "layouts/error_messages", object: @user %>
        <%=form_with model: [:public, @user], url: user_path(@user), method: :patch do |f| %>
           <div class="field">
-            <%= f.label :name %><br />
+            <%= f.label :name, "名前" %><br />
             <%= f.text_field :name, autofocus: true, placeholder: "映画太郎", class: "w-50" %>
           </div>
           <div class="field">
@@ -13,14 +16,15 @@
             <%= f.email_field :email, placeholder: "eiga@sample.com", class: "w-50" %>
           </div>
           <div class="field">
-            <%= f.label :image %><br />
+            <%= f.label :image, "画像" %><br />
             <%= f.file_field :image, accept: "image/*", class: "w-50" %>
           </div>
           <div class="actions">
-            <%= f.submit "更新", class: "btn btn-outline-success mt-4" %>
+            <%= f.submit "更新", class: "btn btn-outline-success mt-4 mb-3" %>
           </div>
-          <%=link_to "退会はこちらから",confirm_path, class: "btn btn-outline-danger mt-3 ms-5" %>
-          <%=link_to "戻る", mypage_path, class: "btn btn-outline-warning mt-3 mx-5" %>
+          <%=link_to confirm_path, style: "color: red;" do %>
+            <i class="fa-solid fa-user-xmark"></i>退会はこちら
+          <% end %>  
        <% end %>    
     </div>
   </div>

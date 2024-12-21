@@ -1,0 +1,14 @@
+  <div class="tag_list">
+    <span class="list_title"><i class="fa-solid fa-tag"></i>タグ</span>
+    <% tags.each do |tag| %>
+      #<%=link_to tag.name, search_tag_path(tag: tag.name), class: "tag_list_link" %>
+    <% end %>
+  </div>
+  <div class="vod_list">
+    <span class="list_title"><i class="fa-solid fa-video"></i>配信サイト</span>
+    <% vods.each do |vod| %>
+      <%=link_to vod.name, search_vod_path(vod: vod.name), class: "tag_list_link" %>
+    <% end %>
+  </div>  
+  
+  

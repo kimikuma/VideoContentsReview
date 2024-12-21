@@ -29,6 +29,9 @@
           <span style="color:red; font-size: 1.3em"><i class="fa-solid fa-lock"></i>非公開</span>
          <% end %>
         </li> 
+        <li class="list-group-item">
+         <%=@post.created_at %>
+        </li> 
       </ul> 
       <div class="card-body"> 
         <% if @post.user==current_user %>
