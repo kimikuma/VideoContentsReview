@@ -218,7 +218,7 @@ body {
   padding: 20px;
 }
 
-.tag_list, .vod_list {
+.tag_list, .vod_list, .genre_list {
   position: relative;
   padding: 15px;
   border-radius: 5px;
@@ -480,7 +480,7 @@ footer {
     width: 60%;
   }
 
-  .tag_list, .vod_list {
+  .tag_list, .vod_list .genre_list{
     padding: 5px;
     width: 195px;
   }  

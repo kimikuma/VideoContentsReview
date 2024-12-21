@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :tags, only: [:index]
     get "/search_tag" => "tags#search_tag", as: "search_tag"
     get "/search_vod" => "vods#search_vod", as: "search_vod"
+    get "/search_genre" =>"genres#search_genre", as: "search_genre"
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
