@@ -6,9 +6,12 @@
         <div class="d-flex flex-wrap mt-4">
          <% @posts.each do |post| %>
           <div class="mb-3 mr-md-5 mb-md-5 search-contents">
-            <%=image_tag post.get_image(300,300) %></br></br>
+            <%=image_tag post.get_image(300,300), style: "width: 300px; height: 200px;" %></br></br>
             <%=link_to post.title, post_path(post) %></br>
             <%=post.impression %></br>
+            <%=render "public/posts/star_review", post: post %>
+            <%=link_to post.genre.name, search_genre_path(genre: post.genre.name) %></br>
+            <%=display_vod_items_link(post.vod_items) %></br>
             <%=post.created_at.strftime("%Y/%m/%d") %>
           </div>  
          <% end %>
