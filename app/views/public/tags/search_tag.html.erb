@@ -15,10 +15,11 @@
       <div class="d-flex flex-wrap"> 
         <% @posts.each do |post| %>
           <div class="mb-3 mr-md-5 mb-md-5 search-contents">
-            <%=image_tag post.get_image(300,300), class: "mb-3" %></br>
+            <%=image_tag post.get_image(300,300), class: "mb-3", style: "width: 300px; height: 200px;" %></br>
             <%=link_to post.title, post_path(post) %></br>
             <%=post.impression %></br>
             <%=render "public/posts/star_review", post: post %>
+            <%=link_to post.genre.name,search_genre_path(genre: post.genre.name) %></br>
             <%=display_tag_items_link(post.tag_items) %></br>
             <%=post.created_at.strftime("%Y/%m/%d") %>
           </div> 
