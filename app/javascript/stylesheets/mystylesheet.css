@@ -45,6 +45,109 @@ body {
   transform: rotate(-20deg);
 }
 
+.target {
+  background-color: #fff;
+  padding: 50px;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 5px 5px 5px #000000;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.target-d-flex {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.target-title {
+  text-decoration: #ccc wavy underline;
+  text-align: center;
+  margin: 20px auto;
+  margin-bottom: 40px;
+}
+
+.target-contents {
+  border: 1px groove #ccc;
+  border-radius: 30px 50px 30px 70px;
+  padding: 10px;
+}
+
+
+.target-text {
+  position: relative;
+  text-align: center;
+  margin: 30px auto;
+}
+
+.target-text:before {
+  position: absolute;
+  top: 0;
+  left: -30px;
+  display: inline-block;
+  content: "";
+  border: 2px solid #ccc;
+  width: 2px;
+  height: 2em;
+  transform: rotate(-50deg);
+}
+
+.target-text:after {
+  position: absolute;
+  top: 0;
+  right: -30px;
+  display: inline-block;
+  content: "";
+  border: 2px solid #ccc;
+  width: 2px;
+  height: 2em;
+  transform: rotate(230deg);
+}
+
+.target-img {
+  width: 100px;
+  height: 100px;
+  opacity: 0.7;
+}
+
+.ranking {
+  width: 100%;
+  height: 100%;
+}
+
+.ranking-title {
+  text-align: center;
+  margin: 0 auto;
+  background-color: #ccc;
+  padding: 10px;
+}
+
+.ranking-d-flex {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.ranking-img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #000000;
+  border-radius: 30px;
+}
+
+.ranking-contents {
+  width: 22%;
+  height: 320px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ranking-text {
+  text-align: center;
+  margin: 0px auto;
+}
+
+
 .open-modal {
   border-radius: 50%;
   padding: 10px;
@@ -84,49 +187,41 @@ body {
   height: 50px;
 }
 
-#background {
-  background-image: url('../images/background.png');
-  background-size: cover;
-  font-size: 3.0em;
-  color: #fff;
+.slider {
   width: 100%;
   height: 600px;
-}
-
-.man-img {
-  width: 200px;
-  height: 250px;
-  border-radius: 50%;
-}
-
-#balloon {
+  overflow: hidden;
   position: relative;
-  padding: 15px;
-  background: #ccc;
-  border-radius: 30px;
 }
 
-#balloon:before {
-  content: "";
+.slide {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  left: -38px;
-  bottom: 0;
-  width: 13px;
-  height: 12px;
-  background: #ccc;
-  border-radius: 30px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-#balloon:after {
-  content: "";
-  position: absolute;
-  left: -20px;
-  bottom: 3px;
-  width: 16px;
-  height: 15px;
-  background: #ccc;
-  border-radius: 30px;
+.slide_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
+
+.active {
+  opacity: 1;
+}
+
+.login-information {
+  border-top: 3px dashed #000000;
+  border-bottom: 3px dashed #000000;
+  padding: 40px;
+  background-color: rgba(204,204,204,0.5);
+} 
+   
 
 .chaplin-img {
   width: 200px;
@@ -251,6 +346,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 340px;
+  background-color: #fff;
 }
 
 .admin-tag-list {
@@ -363,40 +459,57 @@ footer {
 } 
 
 @media screen and (max-width:768px){
-  #background{
-    background-position: center;
-    height: 300px;
+  .target {
+    width: 90%;
   }
 
-  .man-img {
-    width: 0px;
-    height: 0px;
+  .target-d-flex {
+    display: block;
   }
 
-  #balloon {
-    padding: 10px;
-  }  
-
-  #balloon:before {
-    content: "";
+  .target-text:before {
     position: absolute;
-    left: -30px;
-    bottom: 0;
-    width: 10px;
-    height: 9px;
-    background: #ccc;
+    top: 10px;
+    left: -10px;
+    display: inline-block;
+    content: "";
+    border: 2px solid #ccc;
+    width: 2px;
+    height: 2em;
+    transform: rotate(-50deg);
+  }
+  
+  .target-text:after {
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    display: inline-block;
+    content: "";
+    border: 2px solid #ccc;
+    width: 2px;
+    height: 2em;
+    transform: rotate(230deg);
+  }
+
+  .ranking-d-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .ranking-img {
+    width: 130px;
+    height: 130px;
+    border: 1px solid #000000;
     border-radius: 30px;
   }
   
-  #balloon:after {
-    content: "";
-    position: absolute;
-    left: -15px;
-    bottom: 3px;
-    width: 14px;
-    height: 13px;
-    background: #ccc;
-    border-radius: 30px;
+  .ranking-contents {
+    margin: 5px auto;
+    width: 37%;
+    height: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .chaplin-img {

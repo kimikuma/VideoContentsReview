@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <div class="row">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-11 offset-md-1">
       <%=image_tag @user.get_profile_image(70,70),class: "rounded-circle" %>
       <%=@user.name %><br>
       <% if @user==current_user %>
@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-md-8 offset-md-2 col-12">
+    <div class="col-md-11 offset-md-1 col-12">
      <% if @user==current_user %>
       <div class="wrap">
         <ul class="tab-list list-unstyled mt-4">

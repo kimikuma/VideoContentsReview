@@ -63,3 +63,17 @@ $(document).on('turbolinks:load', function() {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const slides= document.querySelctorAll('.slide');
+  let currentSlideIndex= 0;
+  slides[currentSlideIndex].addClass('active');
+
+  function showNextSlide(){
+    slides[currentSlideIndex].removeClass("active");
+    currentSlideIndex=(currentSlideIndex + 1) % slides.length;
+    slides[currentSlideIndex].addClass('active');
+  }
+
+  setInterval(showNextSlide,3000);
+});

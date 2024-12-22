@@ -1,31 +1,62 @@
 <div class="container mt-3">
   <div class="row">
-    <div class="col-md-12 col-12" id="background">
-        <p>Welcome
-          <i class="fa-solid fa-door-open"></i>
-        </p>
+    <div class="col-md-12 col-12 slider">
+     <% @posts.each_with_index do |post,index| %>
+      <div class="slide">
+       <%=image_tag post.get_image(600,600), class: "slide_image" %>
+      </div> 
+     <% end %>
     </div>  
   </div>
   <div class="row mt-5">
     <div class="col-md-6 offset-md-3 col-12"> 
       <h3 class="typing">ドラマや映画のレビューサイトです。</h3>
       <h4>This is a review site for dramas and movies.</h4>
-    </div>
+    </div> 
   </div>   
-  <div class="row d-flex mt-2 mt-md-5 mx-auto">
-    <div class="col-md-2 offset-md-1 col-0">
-      <%=image_tag "man.png", class: "man-img" %>
-    </div>
-    <div class="col-md-5 col-10 offset-1 mt-2" id="balloon">
+  <div class="row mt-4 mt-md-5 target">
+   <h4 class="target-title">こんな方におすすめ！</h4>
+    <div class="col-md-10 col-10 offset-1 mt-2 target-d-flex">
+     <div class="target-contents mr-3 mb-3">
+      <%=image_tag "pixel-cells-3699332_640.png", class: "target-img" %>
       <p>何か映画やドラマが見たいかた</p>
+     </div>
+     <div class="target-contents mr-3 mb-3"> 
+      <%=image_tag "pixel-3699345_640.png", class: "target-img" %>
       <p>映画やドラマのレビューを投稿したいかた</p>
+     </div> 
+     <div class="target-contents mr-3 mb-3">
+      <%=image_tag "pixel-cells-3702060_640.png", class: "target-img" %>
       <p>見たい作品のレビューが気になるかた<p>
-      <p>などなど映画やドラマが好きなかたやそうでないかたも<p>
+     </div>
+     <div class="target-contents mb-3"> 
+      <%=image_tag "pixel-cells-3974182_640.png", class: "target-img" %>
+      <p>映画やドラマが好きな方</p>
+     </div> 
     </div>
-  </div>  
-  <div class="row d-flex mt-5 mx-auto">
+    <div class="target-text">
+     <p>などなど映画やドラマが好きなかたやそうでないかたも</p>
+    </div>
+  </div>
+  <div class="row ranking mt-5">
+   <h4 class="ranking-title mt-4 mb-4">評価ランキング</h4>
+    <div class="col-12 ranking-d-flex">
+     <% @posts_star.each do |post| %>
+      <div class="ranking-contents mt-md-3 mb-md-3 mr-md-4 mr-3">
+        <%=link_to post_path(post) do %>
+         <%=image_tag post.get_image(200,200), class: "ranking-img" %>
+        <% end %> 
+        <p><%=post.title %></p>
+        <p><%=post.impression %></p>
+        <%=render "public/posts/star_review", post: post %>
+      </div> 
+     <% end %>  
+    </div>
+    <h5 class="ranking-text">※ログイン後、利用可能です</h5>
+  </div>   
+  <div class="row d-flex mt-5 mx-auto login-information">
     <div class="col-md-7 offset-md-2 col-9 mt-5" id="balloon2">
-      <h2>気になるかたはぜひご利用くださいませ!</h2>
+      <h2>ぜひご利用くださいませ!</h2>
       <p class="mt-5"><%=link_to "新規登録はこちら", new_user_registration_path, class: "btn btn-outline-success top_link" %>
          <%=link_to "ログインはこちら", new_user_session_path, class: "btn btn-outline-primary top_link" %>
          <%=link_to "ゲストはこちら", users_guest_sign_in_path, method: :post, class: "btn btn-outline-warning top_link" %>
