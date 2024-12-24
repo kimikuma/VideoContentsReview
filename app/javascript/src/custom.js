@@ -1,4 +1,12 @@
 $(document).on('turbolinks:load', function() {
+  $(function(){
+    setTimeout(function(){
+      $(".start-animation-img").fadeIn(1500);
+    }, 500);
+    setTimeout(function(){
+      $(".start-animation").fadeOut(500);
+    }, 6900);
+  });
   $(function() {
     $('.tab').on('click', function(){
       $('.tab-active').removeClass('tab-active');
@@ -63,17 +71,22 @@ $(document).on('turbolinks:load', function() {
     });
   });
 });
+$(document).on('turbolinks:load', function() {
+  let slideIndex = 0;
 
-document.addEventListener('DOMContentLoaded', function() {
-  const slides= document.querySelctorAll('.slide');
-  let currentSlideIndex= 0;
-  slides[currentSlideIndex].addClass('active');
-
-  function showNextSlide(){
-    slides[currentSlideIndex].removeClass("active");
-    currentSlideIndex=(currentSlideIndex + 1) % slides.length;
-    slides[currentSlideIndex].addClass('active');
+  function showSlide() {
+    let slides = document.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  // すべて非表示に
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+      slideIndex = 1; // 最後のスライドの後、最初に戻る
+    }
+    slides[slideIndex - 1].style.display = "block"; // 現在のスライドを表示
+    setTimeout(showSlide, 6000); // 6秒ごとに次のスライドを表示
   }
 
-  setInterval(showNextSlide,3000);
+  // 最初のスライドを表示するためにshowSlide()を呼び出す
+  showSlide();
 });

@@ -1,12 +1,12 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-md-12 col-12 slider">
-     <% @posts.each_with_index do |post,index| %>
+      <% @posts.each_with_index do |post,index| %>
       <div class="slide">
-       <%=image_tag post.get_image(600,600), class: "slide_image" %>
+        <%=image_tag post.get_image(800,800), class: "slide_image" %>
       </div> 
-     <% end %>
-    </div>  
+      <% end %>
+    </div> 
   </div>
   <div class="row mt-5">
     <div class="col-md-6 offset-md-3 col-12"> 
@@ -16,7 +16,7 @@
   </div>   
   <div class="row mt-4 mt-md-5 target">
    <h4 class="target-title">こんな方におすすめ！</h4>
-    <div class="col-md-10 col-10 offset-1 mt-2 target-d-flex">
+    <div class="col-12 mt-2 target-d-flex">
      <div class="target-contents mr-3 mb-3">
       <%=image_tag "pixel-cells-3699332_640.png", class: "target-img" %>
       <p>何か映画やドラマが見たいかた</p>
@@ -42,7 +42,7 @@
    <h4 class="ranking-title mt-4 mb-4">評価ランキング</h4>
     <div class="col-12 ranking-d-flex">
      <% @posts_star.each do |post| %>
-      <div class="ranking-contents mt-md-3 mb-md-3 mr-md-4 mr-3">
+      <div class="ranking-contents mt-md-3 mb-md-3 mr-md-4 ml-md-5 mr-3">
         <%=link_to post_path(post) do %>
          <%=image_tag post.get_image(200,200), class: "ranking-img" %>
         <% end %> 
