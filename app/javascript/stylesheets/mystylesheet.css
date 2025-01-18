@@ -39,24 +39,18 @@ body {
   height: 200px;
   transform-origin: center;
   transform: translate(-50%, -50%);
-  animation: start 4s linear 1;
+  animation: start 3s linear 1;
 }
 
 @keyframes start {
   0%{
-    transform: translate(-50%,-50%)scale(1)rotate(0deg);
-  }
-  20%{
-    transform: translate(-50%,-50%)scale(1.2)rotate(360deg);
+    transform: translate(-50%,-50%)scale(1)rotate(360deg);
   }
   50%{
     transform: translate(-50%,-50%)scale(1.5)rotate(720deg);
   }
-  80%{
-    transform: translate(-50%,-50%)scale(1.8)rotate(1080deg);
-  }
   100%{
-    transform: translate(-50%,-50%)scale(2)rotate(1440deg);
+    transform: translate(-50%,-50%)scale(2.0)rotate(1080deg);
   }
 }
 

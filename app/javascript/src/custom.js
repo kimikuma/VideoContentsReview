@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function() {
     }, 500);
     setTimeout(function(){
       $(".start-animation").fadeOut(500);
-    }, 6900);
+    }, 5100);
   });
   $(function() {
     $('.tab').on('click', function(){
