@@ -26,9 +26,9 @@ class Post < ApplicationRecord
     elsif condition=="forward"
       Post.where("title LIKE?", word+"%")
     elsif condition=="backward"
-      Post.where("title LIKE?","%"+word) 
+      Post.where("title LIKE?","%"+word)
     elsif condition=="perfect"
-      Post.where(title: word)     
+      Post.where(title: word)
     end 
   end 
 
@@ -36,7 +36,9 @@ class Post < ApplicationRecord
     #postsに紐づくtag一覧を取得→current_tagsに代入
     current_tags=self.tags.pluck(:name) unless self.tags.nil?
     #タグ前の#を削除
-    tags=tags.map { |tag| tag.sub(/^#/,'') }.reject(&:empty?)
+    tags=tags.map { |tag| tag.sub(/^#/,'')}.reject(&:empty?)
+    #重複を削除
+    tags = tags.uniq
     #current_tagsと受け取ったtagの差をpresence_tagsに代入(既に登録済だけど今回のタグにないもの)
     presence_tags=current_tags-tags  
     #受け取ったtagとcurrent_tagsの差をnew_tagに代入(新しいタグ)
@@ -44,7 +46,7 @@ class Post < ApplicationRecord
     
     #既に登録済で更新されたタグに含まれないものをtag_itemから削除
     presence_tags.each do |tag|
-     self.tags.delete Tag.find_by(name: tag)
+      self.tags.delete Tag.find_by(name: tag)
     end 
     #更新されたタグで未登録のタグを新規登録
     new_tags.each do |tag|
