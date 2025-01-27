@@ -16,10 +16,10 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/i18n/ja.js"></script>
   </head>
-  <header>
-    <%=render "layouts/header" %>
-  </header>  
   <body>
+    <header>
+      <%=render "layouts/header" %>
+    </header>  
     <%=render "layouts/flash_messages" %>
     <% if user_signed_in? || admin_user_signed_in? %>
       <button class="open-modal"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -50,8 +50,9 @@
         });
       });  
      </script>
+     <footer>
+       <%=render "layouts/footer" %>
+     </footer>
   </body>
-  <footer>
-    <%=render "layouts/footer" %>
-  </footer>
+  
 </html>
