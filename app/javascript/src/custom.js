@@ -4,8 +4,8 @@ $(document).on('turbolinks:load', function() {
       $(".start-animation-img").fadeIn(1500);
     }, 500);
     setTimeout(function(){
-      $(".start-animation").fadeOut(500);
-    }, 5100);
+      $(".start-animation").fadeOut(300);
+    }, 5000);
   });
   $(function() {
     $('.tab').on('click', function(){

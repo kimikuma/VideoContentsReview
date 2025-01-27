@@ -24,8 +24,19 @@
 
 ​
 ## 設計書  
-後ほど作成予定
 
+* 環境構築AWS設計  
+https://drive.google.com/file/d/19r26Hgtq8gVqTMBl1tM213RTqzAUekQ4/view?usp=sharing  
+https://docs.google.com/spreadsheets/d/1nrta4EqTOJ-icAI9UiXRxu6MEGXvMEa7SHvZ-s1E-js/edit?usp=sharing  
+* UIFlows  
+https://drive.google.com/file/d/1ozkI5AtVpcwFqtzXIYTewXmvJ0C0yxZz/view?usp=sharing  
+https://drive.google.com/file/d/12WQCWs5XDRPRwmE-eHClYBRxbF9vgi3B/view?usp=sharing  
+* ER図  
+https://drive.google.com/file/d/1lWaVvgwHi6GV2bq1uhTDL3U3UxM__8Ii/view?usp=sharing  
+* テーブル定義書  
+https://docs.google.com/spreadsheets/d/12nb3qrqv6ofpsgzNVy0x94FnWbyYHBBpjbz7j7JHmMc/edit?usp=sharing  
+* アプリケーション詳細設計書  
+https://docs.google.com/spreadsheets/d/15Vb-Q4a1GBXoHpAHfwewp3FF7WGk_P-oozU4QVi-WNU/edit?usp=sharing  
 
 ## 開発環境
 - OS：Linux(CentOS)
