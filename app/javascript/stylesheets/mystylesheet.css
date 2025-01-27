@@ -335,10 +335,11 @@ body {
 .index_img {
   width: 150px;
   height: 100px;
+  object-fit: cover;
 }
 
 .card-img-top {
-  height: 350px;
+  height: auto;
 }
 
 .confirm {
@@ -608,7 +609,7 @@ footer {
 
   
   .card-img-top {
-    height: 250px;
+    height: auto;
   }
 
   #form_image {
@@ -624,6 +625,7 @@ footer {
   .index_img {
     width: 100px;
     height: 70px;
+    object-fit: cover;
   }
 
   .profile_img {
