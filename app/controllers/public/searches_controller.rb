@@ -8,8 +8,7 @@ class Public::SearchesController < Public::ApplicationController
     if @model=="true"
       @users=User.search_for(@word,condition)
     else @model=="false"
-      @posts=Post.search_for(@word,condition) 
-      @posts=@posts.where(status: true)
+      @posts=Post.search_for(@word,condition).where(status: true)
     end     
   end     
 
