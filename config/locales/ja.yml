@@ -3,18 +3,21 @@ ja:
   models:
    user: "ユーザー"
    post: "投稿"
+   comment: "コメント"
   attributes:
    user:
     name: "名前"
    post: 
     title: "タイトル"
     impression: "感想"
+   comment:
+    comment: "コメント"
   errors:
    messages:
     blank: "を入力してください。"
     invalid: "の形式が不正です。"
     tooshort: "は%{count}文字以上で入力してください"
-    less_than: "は%{count}より小さい値にしてください"
+    toolong: "は%{count}文字以下で入力してください"
     taken: "はすでに存在します"
   
     
