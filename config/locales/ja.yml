@@ -7,18 +7,24 @@ ja:
     tooshort: "は%{count}文字以上で入力してください"
     less_than: "は%{count}より小さい値にしてください"
     taken: "はすでに存在します"
-
- activerecord:
-  models:
-   post: "投稿"
-   user: "ユーザー"
-   comment: "コメント"
-  attributes: 
-   post: 
-    title: "タイトル"  
-    impression: "感想" 
-   user: 
-    name: "名前"
-   comment: 
-    comment: "コメント" 
+   models:
+    post: "投稿"
+     attributes: 
+      title: "タイトル"  
+      impression: "感想"
+    user: "ユーザー"
+     attributes: 
+      name: "名前"
+    comment: "コメント"
+     attributes: 
+      comment: "コメント" 
+    
+   
+    
+   
+    
+   
+    
+   
+    
 
