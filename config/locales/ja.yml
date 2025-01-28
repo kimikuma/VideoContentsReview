@@ -11,18 +11,14 @@ ja:
  activerecord:
   models:
    post: "投稿"
+   user: "ユーザー"
+   comment: "コメント"
   attributes: 
    post: 
     title: "タイトル"  
-    impression: "感想"
-  models:
-   user: "ユーザー"
-  attributes: 
+    impression: "感想" 
    user: 
-    name: "名前"  
-  models:
-   comment: "コメント"
-  attributes: 
+    name: "名前"
    comment: 
     comment: "コメント" 
 
