@@ -1,5 +1,14 @@
 ja:
  activerecord:
+  models:
+   user: "ユーザー"
+   post: "投稿"
+  attributes:
+   user:
+    name: "名前"
+   post: 
+    title: "タイトル"
+    impression: "感想"
   errors:
    messages:
     blank: "を入力してください。"
@@ -7,7 +16,7 @@ ja:
     tooshort: "は%{count}文字以上で入力してください"
     less_than: "は%{count}より小さい値にしてください"
     taken: "はすでに存在します"
-
+  
     
    
     
