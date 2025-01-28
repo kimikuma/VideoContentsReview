@@ -1,0 +1,28 @@
+ja:
+ activerecord:
+  errors:
+   messages:
+    blank: "を入力してください。"
+    invalid: "の形式が不正です。"
+    tooshort: "は%{count}文字以上で入力してください"
+    less_than: "は%{count}より小さい値にしてください"
+    taken: "はすでに存在します"
+
+ activerecord:
+  models:
+   post: "投稿"
+  attributes: 
+   post: 
+    title: "タイトル"  
+    impression: "感想"
+  models:
+   user: "ユーザー"
+  attributes: 
+   user: 
+    name: "名前"  
+  models:
+   comment: "コメント"
+  attributes: 
+   comment: 
+    comment: "コメント" 
+

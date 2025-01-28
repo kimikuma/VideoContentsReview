@@ -1,6 +1,6 @@
 <div class="mt-2">
  <%=form_with model: [:public, comment], url: post_comments_path(post), local: false do |f| %>
-   <%=f.text_area :comment, placeholder: "コメントしてみよう！", autofocus: true, class: "comment_form" %><br>
+   <%=f.text_area :comment, placeholder: "コメントしてみよう！(30文字以内で入力してください。)", autofocus: true, class: "comment_form" %><br>
    <%=f.submit "コメント", class: "btn btn-outline-secondary" %>
  <% end %>
 </div>   
