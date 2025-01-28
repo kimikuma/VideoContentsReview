@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="row">    
-    <div class="col-11 offset-1 mt-3">
+    <div class="col-12 col-md-11 offset-md-1 mt-3">
       <%=link_to "新着順",search_tag_path(tag: params[:tag],latest: true), class: "btn btn-outline-secondary btn-sm mr-1 mb-3" %>
       <%=link_to "古い順",search_tag_path(tag: params[:tag],old: true), class: "btn btn-outline-secondary btn-sm mr-1 mb-3" %>
       <%=link_to "評価順",search_tag_path(tag: params[:tag],star_count: true), class: "btn btn-outline-secondary btn-sm mb-3" %>
