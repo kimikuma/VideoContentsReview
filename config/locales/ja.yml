@@ -16,8 +16,8 @@ ja:
    messages:
     blank: "を入力してください。"
     invalid: "の形式が不正です。"
-    tooshort: "は%{count}文字以上で入力してください"
-    toolong: "は%{count}文字以下で入力してください"
+    too_short: "は%{count}文字以上で入力してください"
+    too_long: "は%{count}文字以下で入力してください"
     taken: "はすでに存在します"
   
     
