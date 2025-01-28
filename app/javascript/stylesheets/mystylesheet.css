@@ -671,6 +671,10 @@ footer {
     width: 195px;
   }  
 
+  .new-tab {
+    padding: 9px;
+  }
+
   .new-tag-contents {
    margin: 0 auto;
    width: 80%;
