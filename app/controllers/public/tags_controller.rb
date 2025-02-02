@@ -1,4 +1,5 @@
-class Public::TagsController < ApplicationController
+class Public::TagsController < Public::ApplicationController
+
 
   def search_tag
     if params[:tag].present?
@@ -16,5 +17,5 @@ class Public::TagsController < ApplicationController
     else
       @posts=Post.where(status: true).joins(:tags).where(tags: {name: params[:tag]})
     end        
-  end   
+  end  
 end
