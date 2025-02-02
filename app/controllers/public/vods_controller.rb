@@ -1,4 +1,4 @@
-class Public::VodsController < ApplicationController
+class Public::VodsController < Public::ApplicationController
 
   def search_vod
     if params[:vod].present?
